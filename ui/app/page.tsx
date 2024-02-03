@@ -1,6 +1,6 @@
 'use client';
-import { Navigation } from "@/app/components/nav";
-import { MutableRefObject, useRef , useState} from "react";
+import {Navigation} from "@/app/components/nav";
+import {MutableRefObject, useRef, useState} from "react";
 import Section from "@/app/components/section";
 import SectionBtn from "@/app/components/sectionBtn";
 
@@ -11,16 +11,16 @@ export default function Home() {
     const projectsSection = useRef<HTMLDivElement>(null);
     const workExperienceSection = useRef<HTMLDivElement>(null);
     const contactMeSection = useRef<HTMLDivElement>(null);
-    const [ activeSection, setActiveSection] = useState();
+    const [activeSection, setActiveSection] = useState();
 
-    const sections = [
-    ]
+    const sections = []
 
     function scrollToSection(section: MutableRefObject<HTMLDivElement | null>) {
         if (section.current) {
-            section.current.scrollIntoView({ behavior: "smooth" });
+            section.current.scrollIntoView({behavior: "smooth"});
         }
     }
+
     return (
         <>
             <Navigation sectionHighlight={activeSection}/>
@@ -74,9 +74,11 @@ export default function Home() {
                             Learn more about my my:
                         </div>
                         <div className={"flex flex-row justify-center py-3 gap-16"}>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection} btnName={"Projects"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
+                                        btnName={"Projects"}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection} btnName={"Work Experience"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
+                                        btnName={"Work Experience"}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"}/>
                         </div>
 
@@ -85,16 +87,18 @@ export default function Home() {
             </div>
             <div ref={skillsSection}>
                 <Section goToSectionRef={projectsSection} scrollTo={scrollToSection} showArrow={false}>
-                    <div className={"flex flex-col"}>
-
-                        <div className={"text-5xl font-bebas"}>Skills</div>
-                        <div className="flex flex-row">
-                            <div className={"flex flex-row"}>
-                                <div className={"flex flex-col w-[50%]"}>The diagram provides a snapshot of some of my skills.
+                    <div className={"flex flex-col mx-24"}>
+                        <div className="flex flex-row justify-center">
+                            <div className={"flex flex-col mx-6 gap-4 justify-center"}>
+                                <div className={"text-5xl font-bebas"}>Skills</div>
+                                {/*<div className={"flex flex-row"}>*/}
+                                <div className={"flex flex-col w-[50%]"}>The diagram provides a snapshot of some of my
+                                    skills.
                                     For a more comprehensive view of my capabilities, please explore the projects
                                     available on my GitHub profile linked below. These repositories.
                                 </div>
                             </div>
+                            {/*</div>*/}
                             <div className={"flex flex-col"}>
                                 <div className="w-[412px] h-[416px] relative">
                                     <div className="w-[100px] h-[123px] left-[277px] top-0 absolute">
