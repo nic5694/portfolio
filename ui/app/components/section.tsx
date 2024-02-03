@@ -4,16 +4,16 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 interface SectionProps {
-    scrollTo?: (ref: React.RefObject<HTMLDivElement>) => void;
-    goToSectionRef?: React.RefObject<HTMLDivElement>;
-    showArrow?: boolean;
+    scrollTo: (ref: React.RefObject<HTMLDivElement>) => void;
+    goToSectionRef: React.RefObject<HTMLDivElement>;
+    showArrow: boolean;
     children?: ReactNode;
 }
 
 export default function Section({
                                     scrollTo,
                                     goToSectionRef,
-                                    showArrow = true,
+                                    showArrow,
                                     children,
                                 }: SectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -56,7 +56,6 @@ export default function Section({
                         backgroundImage: "url('../../images/downarrow.svg')",
                         zIndex: 2,
                     }}
-                    // @ts-ignore
                     onClick={() => scrollTo(goToSectionRef)}
                 ></button>
             )}
