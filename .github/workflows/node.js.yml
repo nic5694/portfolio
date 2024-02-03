@@ -14,14 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set working directory to api
-      run: cd ./api
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      working-directory: ./api
+        working-directory: ./api
     - name: Install dependencies
       run: npm ci
       working-directory: ./api
