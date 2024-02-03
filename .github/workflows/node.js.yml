@@ -15,17 +15,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: ./api
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        working-directory: ./api
     - name: Install dependencies
+      working-directory: ./api
       run: npm ci
-      working-directory: ./api
     - name: Build source code
+      working-directory: ./api
       run: npm run build --if-present
-      working-directory: ./api
     - name: Run tests
-      run: npm test
       working-directory: ./api
+      run: npm test
