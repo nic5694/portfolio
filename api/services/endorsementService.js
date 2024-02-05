@@ -3,7 +3,7 @@ const EndorsementStatus = require('../models/EndorsementStatus');
 
 async function getAllEndorsements(res) {
     try {
-        const endorsements = await Endorsement.find();
+        const endorsements = (await Endorsement.find().exec()).filter(endorsement => endorsement.status === EndorsementStatus.APPROVED)
         res.json(endorsements);
     }
     catch (err) {
