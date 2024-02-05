@@ -36,15 +36,15 @@ function TestimonialContainer() {
 
     return (
 
-        <div className={"bg-white"}>
+        <div className={"bg-white rounded-[20px]"}>
             <div className='absolute'>
-        <div className='absolute bg-white w-10 h-10 rounded-full animate-ping'></div>
+        <div className='absolute bg-gray-200 w-10 h-10 rounded-full animate-ping'></div>
             <button onClick={() => {getNewTestimonial()}} style={{alignItems: "center"}} className='absolute z-100 bg-black text-white w-10 h-10 rounded-full flex justify-center'>
         {refreshIcon()}
         </button>
         </div>
 
-        <div className='px-10 py-10 border w-[100%] h-[270px] md:w-[25rem] rounded-lg md:mt-3 md:ml-3'>
+        <div className='px-10 py-10 border w-[100%] h-[270px] md:w-[25rem] rounded-lg'>
         {isLoadingNewTestimonials ?
             <div style={{alignItems: "center"}} className='flex justify-center h-full'>
         {LoadingIcon()}

@@ -10,6 +10,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import "react-multi-carousel/lib/styles.css";
 import SectionTitle from "@/app/components/SectionTitle";
 import TestimonialContainer from "@/app/components/TestimonialsComponent";
+
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
     const aboutMeSection = useRef<HTMLDivElement>(null);
@@ -25,7 +26,9 @@ export default function Home() {
     const sendIconSVG = () => {
         return (
             <svg width="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.5213 0.480536C19.3054 0.266169 19.0346 0.11547 18.7386 0.0450012C18.4427 -0.0254679 18.133 -0.0129794 17.8437 0.0810942L1.147 5.65045C0.837341 5.74857 0.563706 5.93626 0.360655 6.18981C0.157603 6.44335 0.0342435 6.75139 0.00615618 7.075C-0.0219312 7.39862 0.0465136 7.7233 0.202846 8.00803C0.359179 8.29277 0.596386 8.5248 0.884509 8.6748L7.81197 12.0986L11.2358 19.0489C11.3734 19.3209 11.584 19.5493 11.8439 19.7086C12.1039 19.8678 12.4031 19.9515 12.708 19.9505H12.8221C13.1486 19.9264 13.4603 19.8047 13.7168 19.6012C13.9732 19.3977 14.1625 19.1217 14.2601 18.8092L19.9093 2.15819C20.0102 1.87052 20.0273 1.5601 19.9586 1.2631C19.8899 0.966087 19.7383 0.694702 19.5213 0.480536ZM1.85458 7.2254L16.4285 2.36362L8.33695 10.4552L1.85458 7.2254ZM12.7879 18.1473L9.54669 11.6649L17.6382 3.57336L12.7879 18.1473Z" fill="white"/>
+                <path
+                    d="M19.5213 0.480536C19.3054 0.266169 19.0346 0.11547 18.7386 0.0450012C18.4427 -0.0254679 18.133 -0.0129794 17.8437 0.0810942L1.147 5.65045C0.837341 5.74857 0.563706 5.93626 0.360655 6.18981C0.157603 6.44335 0.0342435 6.75139 0.00615618 7.075C-0.0219312 7.39862 0.0465136 7.7233 0.202846 8.00803C0.359179 8.29277 0.596386 8.5248 0.884509 8.6748L7.81197 12.0986L11.2358 19.0489C11.3734 19.3209 11.584 19.5493 11.8439 19.7086C12.1039 19.8678 12.4031 19.9515 12.708 19.9505H12.8221C13.1486 19.9264 13.4603 19.8047 13.7168 19.6012C13.9732 19.3977 14.1625 19.1217 14.2601 18.8092L19.9093 2.15819C20.0102 1.87052 20.0273 1.5601 19.9586 1.2631C19.8899 0.966087 19.7383 0.694702 19.5213 0.480536ZM1.85458 7.2254L16.4285 2.36362L8.33695 10.4552L1.85458 7.2254ZM12.7879 18.1473L9.54669 11.6649L17.6382 3.57336L12.7879 18.1473Z"
+                    fill="white"/>
             </svg>
         )
     }
@@ -33,7 +36,9 @@ export default function Home() {
     const clearIconSVG = () => {
         return (
             <svg width="15" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.43687 8.49625L16.4719 1.45438C16.596 1.32965 16.6656 1.16082 16.6655 0.984873C16.6654 0.80892 16.5955 0.640186 16.4712 0.515626C16.2225 0.268126 15.7844 0.266877 15.5331 0.516877L8.49999 7.55875L1.46437 0.515002C1.21437 0.268126 0.77624 0.269376 0.52749 0.516251C0.465748 0.577747 0.416872 0.650925 0.383714 0.731513C0.350556 0.812101 0.33378 0.898486 0.334365 0.985627C0.334365 1.16313 0.403115 1.32938 0.52749 1.4525L7.56249 8.49563L0.528115 15.5394C0.403981 15.6643 0.334465 15.8334 0.334816 16.0095C0.335168 16.1856 0.405359 16.3543 0.529991 16.4788C0.650616 16.5981 0.82124 16.6669 0.99749 16.6669H1.00124C1.17812 16.6663 1.34874 16.5969 1.46687 16.4763L8.49999 9.43438L15.5356 16.4781C15.66 16.6019 15.8262 16.6706 16.0025 16.6706C16.0896 16.6709 16.176 16.6539 16.2566 16.6207C16.3371 16.5874 16.4103 16.5386 16.4719 16.477C16.5336 16.4153 16.5824 16.3421 16.6156 16.2616C16.6489 16.181 16.6659 16.0947 16.6656 16.0075C16.6656 15.8306 16.5969 15.6638 16.4719 15.5406L9.43687 8.49625Z" fill="black" fill-opacity="0.75"/>
+                <path
+                    d="M9.43687 8.49625L16.4719 1.45438C16.596 1.32965 16.6656 1.16082 16.6655 0.984873C16.6654 0.80892 16.5955 0.640186 16.4712 0.515626C16.2225 0.268126 15.7844 0.266877 15.5331 0.516877L8.49999 7.55875L1.46437 0.515002C1.21437 0.268126 0.77624 0.269376 0.52749 0.516251C0.465748 0.577747 0.416872 0.650925 0.383714 0.731513C0.350556 0.812101 0.33378 0.898486 0.334365 0.985627C0.334365 1.16313 0.403115 1.32938 0.52749 1.4525L7.56249 8.49563L0.528115 15.5394C0.403981 15.6643 0.334465 15.8334 0.334816 16.0095C0.335168 16.1856 0.405359 16.3543 0.529991 16.4788C0.650616 16.5981 0.82124 16.6669 0.99749 16.6669H1.00124C1.17812 16.6663 1.34874 16.5969 1.46687 16.4763L8.49999 9.43438L15.5356 16.4781C15.66 16.6019 15.8262 16.6706 16.0025 16.6706C16.0896 16.6709 16.176 16.6539 16.2566 16.6207C16.3371 16.5874 16.4103 16.5386 16.4719 16.477C16.5336 16.4153 16.5824 16.3421 16.6156 16.2616C16.6489 16.181 16.6659 16.0947 16.6656 16.0075C16.6656 15.8306 16.5969 15.6638 16.4719 15.5406L9.43687 8.49625Z"
+                    fill="black" fill-opacity="0.75"/>
             </svg>
         )
     }
@@ -85,246 +90,258 @@ export default function Home() {
     }
     return (
         <>
-        <Navigation sectionHighlight={activeSection}/>
-        <div className={"section"}>
-            <Section showArrow={true} goToSectionRef={aboutMeSection} scrollTo={scrollToSection}>
-                <div
-                    ref={landingSection}
-                    className={"HomePageContainer"}
-                >
+            <Navigation sectionHighlight={activeSection}/>
+            <div className={"section"}>
+                <Section showArrow={true} goToSectionRef={aboutMeSection} scrollTo={scrollToSection}>
                     <div
-                        style={{fontFamily: 'Bebas Neue', textAlign: "center", marginTop: "23vh"}}
-                        className="text-white text-5xl sm:text-7xl 2xl:text-[120px]"
+                        ref={landingSection}
+                        className={"HomePageContainer"}
                     >
-                        <div className="align-middle">Nicholas Martoccia</div>
-                        <div className="align-bottom text-2xl my-32">
-                            <button
-                                onClick={() => {
-                                    scrollToSection(aboutMeSection);
-                                }}
-                                className="bg-gray-400 py-2 px-2 rounded"
-                            >
-                                Enter Portfolio
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </Section>
-        </div>
-        <div ref={aboutMeSection}>
-            <Section goToSectionRef={skillsSection} scrollTo={scrollToSection} showArrow={true}>
-                <div className={"flex flex-col"}>
-                    <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
-                        <div className={"flex flex-col gap-4"}>
-                            <div className="w-[400px] h-[400px] bg-black rounded-full"/>
-                            <div className={"flex flex-row justify-center gap-10"}>
-                                <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
-                                <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
-                                <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
+                        <div
+                            style={{fontFamily: 'Bebas Neue', textAlign: "center"}}
+                            className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg: mt-64"
+                        >
+                            <div className="align-middle">Nicholas Martoccia</div>
+                            <div className="align-bottom text-2xl my-32">
+                                <button
+                                    onClick={() => {
+                                        scrollToSection(aboutMeSection);
+                                    }}
+                                    className="bg-gray-400 py-2 px-2 rounded"
+                                >
+                                    Enter Portfolio
+                                </button>
                             </div>
                         </div>
-                        <div className="w-[40%] text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi risus,
-                            fringilla et sollicitudin id, dictum viverra nunc. Nam faucibus nec nisl eu varius.
-                            Etiam feugiat velit nec augue cursus fringilla. Duis eget elit neque. Praesent ex
-                            lacus, vestibulum vitae enim a.
-                            <br/>
-                            Currently a DEC graduate starting my Bachelors in Computer Science at Concordia
-                        </div>
                     </div>
-                    <div className={"text-center text-4xl sm:text 2xl:text font-bebas"}>
-                        Learn more about my my:
-                    </div>
-                    <div className={"flex flex-row justify-center py-3 gap-16"}>
-                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
-                                    btnName={"Projects"}/>
-                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
-                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
-                                    btnName={"Work Experience"}/>
-                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"}/>
-                    </div>
-
-                </div>
-            </Section>
-        </div>
-        <div ref={skillsSection}>
-            <Section goToSectionRef={projectsSection} scrollTo={scrollToSection} showArrow={false}>
-                <div className="flex flex-col mx-4 md:mx-8 lg:mx-12 xl:mx-24">
-
-                    <div className="flex flex-col md:flex-row justify-center">
-                        <div className="flex flex-col md:mx-6 gap-4 justify-center">
-                            <div className="text-5xl font-bebas">Skills</div>
-                            <div className="flex flex-col md:w-1/2">
-
-                                The diagram provides a snapshot of some of my skills. For a more comprehensive view
-                                of my capabilities, please explore the projects available on my GitHub profile
-                                linked below. These repositories.
-                                <div className='flex justify-start mt-5'>
-                                    <button
-                                        onClick={() => {
-                                            scrollToSection(projectsSection)
-                                        }}
-                                        className='animate-bounce border-[1.5px] pl-5 pr-2 border-black pb-1 pt-1 gap-3 rounded-full text-sm flex hover:gap-5 duration-200 ease-in-out'>
-                                        <span>See Projects</span>
-                                        <span>{githubLogoSvg()}</span></button>
+                </Section>
+            </div>
+            <div ref={aboutMeSection}>
+                <Section goToSectionRef={skillsSection} scrollTo={scrollToSection} showArrow={true}>
+                    <div className={"flex flex-col"}>
+                        <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
+                            <div className={"flex flex-col gap-4"}>
+                                <div className="w-[400px] h-[400px] bg-black rounded-full"/>
+                                <div className={"flex flex-row justify-center gap-10"}>
+                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
+                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
+                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
                                 </div>
                             </div>
-                        </div>
-                        <div className="flex flex-col gap-3 justify-center">
-                            <div className="w-full md:w-96 lg:w-96 xl:w-[35vw] flex gap-3 flex-wrap justify-center">
-                                <ProgressCircle percentage={90} text={"Java"}/>
-                                <ProgressCircle percentage={50} text={"C#"}/>
-                                <ProgressCircle percentage={40} text={"PHP"}/>
-                                <ProgressCircle percentage={70}
-                                                text={"Python"}/>
-                                <ProgressCircle percentage={95}
-                                                text={"JavaScript"}/>
-                                <ProgressCircle percentage={80}
-                                                text={"TypeScript"}/>
-                                <ProgressCircle percentage={80}
-                                                text={"Swift"}/>
-                                <ProgressCircle percentage={85}
-                                                text={"MySQL Server"}/>
-                                <ProgressCircle percentage={90}
-                                                text={"Microsoft SQL Server"}/>
-                                <ProgressCircle percentage={90}
-                                                text={"Spring Boot"}/>
+                            <div className="w-[40%] text-justify">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi risus,
+                                fringilla et sollicitudin id, dictum viverra nunc. Nam faucibus nec nisl eu varius.
+                                Etiam feugiat velit nec augue cursus fringilla. Duis eget elit neque. Praesent ex
+                                lacus, vestibulum vitae enim a.
+                                <br/>
+                                Currently a DEC graduate starting my Bachelors in Computer Science at Concordia
                             </div>
+                        </div>
+                        <div className={"text-center text-4xl sm:text 2xl:text font-bebas"}>
+                            Learn more about my my:
+                        </div>
+                        <div className={"flex flex-row justify-center py-3 gap-16"}>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
+                                        btnName={"Projects"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
+                                        btnName={"Work Experience"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"}/>
+                        </div>
+
+                    </div>
+                </Section>
+            </div>
+            <div ref={skillsSection}>
+                <Section goToSectionRef={projectsSection} scrollTo={scrollToSection} showArrow={false}>
+                    <div className="flex flex-col mx-4 md:mx-8 lg:mx-12 xl:mx-24">
+
+                        <div className="flex flex-col md:flex-row justify-center">
+                            <div className="flex flex-col md:mx-6 gap-4 justify-center">
+                                <div className="text-5xl font-bebas">Skills</div>
+                                <div className="flex flex-col md:w-1/2">
+
+                                    The diagram provides a snapshot of some of my skills. For a more comprehensive view
+                                    of my capabilities, please explore the projects available on my GitHub profile
+                                    linked below. These repositories.
+                                    <div className='flex justify-start mt-5'>
+                                        <button
+                                            onClick={() => {
+                                                scrollToSection(projectsSection)
+                                            }}
+                                            className='animate-bounce border-[1.5px] pl-5 pr-2 border-black pb-1 pt-1 gap-3 rounded-full text-sm flex hover:gap-5 duration-200 ease-in-out'>
+                                            <span>See Projects</span>
+                                            <span>{githubLogoSvg()}</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-3 justify-center">
+                                <div className="w-full md:w-96 lg:w-96 xl:w-[35vw] flex gap-3 flex-wrap justify-center">
+                                    <ProgressCircle percentage={90} text={"Java"}/>
+                                    <ProgressCircle percentage={50} text={"C#"}/>
+                                    <ProgressCircle percentage={40} text={"PHP"}/>
+                                    <ProgressCircle percentage={70}
+                                                    text={"Python"}/>
+                                    <ProgressCircle percentage={95}
+                                                    text={"JavaScript"}/>
+                                    <ProgressCircle percentage={80}
+                                                    text={"TypeScript"}/>
+                                    <ProgressCircle percentage={80}
+                                                    text={"Swift"}/>
+                                    <ProgressCircle percentage={85}
+                                                    text={"MySQL Server"}/>
+                                    <ProgressCircle percentage={90}
+                                                    text={"Microsoft SQL Server"}/>
+                                    <ProgressCircle percentage={90}
+                                                    text={"Spring Boot"}/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </Section>
+            </div>
+
+
+            <div ref={projectsSection}>
+                <Section goToSectionRef={workExperienceSection} scrollTo={scrollToSection} showArrow={false}>
+                    <div className={"flex flex-row"}>
+                        <SectionTitle title={"Projects"}/>
+                        <div className={"flex flex-col"}>
+                            <div className="flex flex-row gap-44 justify-center">
+                                {/*<img*/}
+                                {/*    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fbackground&psig=AOvVaw3UQ1sg6TvSW9EbdXgVI7v9&ust=1707081180871000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMCZu4yLkIQDFQAAAAAdAAAAABAE"*/}
+                                {/*    alt="Project 2"/>*/}
+                            </div>
+                        </div>
+
+                    </div>
+                </Section>
+            </div>
+            <div ref={workExperienceSection}
+                 className={"mt-20 md:mt-0 flex flex-col justify-center bg-gray-200 md:max-h-min sm:max-h-min lg:max-h-min"}>
+                <div>
+                    <SectionTitle title={"Work Experience"}/>
+                    <VerticalTimeline lineColor={"black"} animate={true}>
+                        <VerticalTimelineElement
+                            className={"vertical-timeline-element--work"}
+                            contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
+                            contentArrowStyle={{borderRight: '7px solid  black'}}
+                            date={"January 2022 - January 2024"}
+                            iconStyle={{background: 'black', color: '#fff'}}
+                            visible={true}
+                            icon={jobIcon()}>
+                            <h3 className="vertical-timeline-element-title">Lead Programmer Robotics Club</h3>
+                            <h4 className="vertical-timeline-element-subtitle">Champlain College Saint-Lambert</h4>
+                            <p>Competed and represented my school in CRC Robotics competitions. Participated as
+                                programmer of the robot (Arduino C++) and leader of the Java programming challenge
+                                team.</p>
+                        </VerticalTimelineElement>
+                        <VerticalTimelineElement
+                            className={"vertical-timeline-element--education"}
+                            contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
+                            contentArrowStyle={{borderRight: '7px solid  black'}}
+                            date={"June 2022 - August 2022"}
+                            iconStyle={{background: 'black', color: '#fff'}}
+                            visible={true}
+                            icon={jobIcon()}
+                        >
+                            <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
+                            <h4 className="vertical-timeline-element-subtitle">University of Sherbrooke, Quebec</h4>
+                            <p>Built and developed web components using TypeScript and the Lit framework for a
+                                federal research on computational critical thinking and logistic.</p>
+                        </VerticalTimelineElement>
+                        <VerticalTimelineElement
+                            className={"vertical-timeline-element--work"}
+                            contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
+                            contentArrowStyle={{borderRight: '7px solid  black'}}
+                            date={"February 2024 - May 2024"}
+                            iconStyle={{background: 'black', color: '#fff'}}
+                            icon={jobIcon()}
+                            visible={true}>
+                            <h3 className="vertical-timeline-element-title">Deployment Technician - Control Force & Motion</h3>
+                            <h4 className="vertical-timeline-element-subtitle">CAE</h4>
+                            <p>Was put in charge or running tests on the
+                                simulators and generating reports to ensure the simulators behaviors were within the
+                                allowed delta set by the engineers. Collaborated in IoT projects to improve
+                                simulator behavior and features.</p>
+                        </VerticalTimelineElement>
+                    </VerticalTimeline>
+                </div>
+            </div>
+            <div ref={testamonials} style={{alignItems: "center"}}
+                 className='bg-gray-200 md:flex flex-col justify-center py-16 gap-20 flex-wrap h-[100vh] px-[5%]'>
+
+                <div  className={"mb-5"}>
+                    <SectionTitle title={"Testimonials"}/>
+                </div>
+
+                <div className={"md:flex justify-center gap-20"}>
+                    <div className={" mb-5 "}>
+                        <TestimonialContainer/>
+                    </div>
+
+                    <div>
+                        <div className='border-l-[6px] border-black pl-3'>
+                            <div style={{fontFamily: 'Bebas Neue, cursive'}}
+                                 className='text-[30px] leading-none mb-1'>Leave An Endorsement
+                            </div>
+                            <div
+                                className='w-[100%] md:w-[350px] text-[12px] font-sans text-[rgb(0,0,0,0.65)]'>
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                Here you can will find endorsements from past colleagues and employers. If you would
+                                like to leave an endorsement, please fill out the form below and do not forget to include
+                                your name and company where you worked with me.
+                            </div>
+                        </div>
+
+                        <div style={{fontFamily: 'Bebas Neue, cursive'}} className='md:w-96'>
+                            <form action="" className='flex flex-col gap-7'>
+
+                                <div className='flex-col md:flex-row flex gap-5'>
+                                    <div>
+                                        <input
+                                            className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
+                                            type="text" name="" id="" placeholder='Full Name'/>
+                                    </div>
+                                    <div>
+                                        <input
+                                            className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
+                                            type="text" name="" id="" placeholder='Company'/>
+                                    </div>
+                                </div>
+                                <div>
+                                <textarea
+                                    className='border-b-[1px] border-[rgba(0,0,0,0.3)] w-[100%] h-20 focus:px-3 focus:pt-3 duration-150 ease-in-out'
+                                    placeholder='Message...'></textarea>
+                                </div>
+                                <div className='flex gap-3 md:mb-0'>
+                                    <button style={{alignItems: "center"}}
+                                            className='flex justify-center w-10 h-10 bg-black rounded-full shadow-lg hover:scale-[105%] duration-200 ease-in-out'
+                                            type='submit'>{sendIconSVG()}</button>
+                                    <button style={{alignItems: "center"}}
+                                            className='flex justify-center w-10 h-10 bg-white rounded-full border border-[lightgray] shadow-md hover:scale-[105%] duration-200 ease-in-out'
+                                            type='reset'>{clearIconSVG()}</button>
+                                </div>
+
+                            </form>
 
                         </div>
                     </div>
                 </div>
-            </Section>
-        </div>
 
-
-        <div ref={projectsSection}>
-            <Section goToSectionRef={workExperienceSection} scrollTo={scrollToSection} showArrow={false}>
-                <div className={"flex flex-row"}>
-                    <SectionTitle title={"Projects"}/>
+            </div>
+            <div ref={contactMeSection}>
+                <Section goToSectionRef={contactMeSection} scrollTo={scrollToSection} showArrow={false}>
                     <div className={"flex flex-col"}>
-                        <div className="flex flex-row gap-44 justify-center">
-                            {/*<img*/}
-                            {/*    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fbackground&psig=AOvVaw3UQ1sg6TvSW9EbdXgVI7v9&ust=1707081180871000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMCZu4yLkIQDFQAAAAAdAAAAABAE"*/}
-                            {/*    alt="Project 2"/>*/}
+                        <SectionTitle title={"Contact Me"}/>
+                        <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
+
                         </div>
                     </div>
-
-                </div>
-            </Section>
-        </div>
-        <div ref={workExperienceSection}
-             className={"mt-20 md:mt-0 flex flex-col justify-center bg-gray-200 md:max-h-min sm:max-h-min lg:max-h-min"}>
-            <div>
-                <SectionTitle title={"Work Experience"}/>
-                <VerticalTimeline lineColor={"black"} animate={true}>
-                    <VerticalTimelineElement
-                        className={"vertical-timeline-element--work"}
-                        contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
-                        contentArrowStyle={{borderRight: '7px solid  black'}}
-                        date={"January 2022 - January 2024"}
-                        iconStyle={{background: 'black', color: '#fff'}}
-                        visible={true}
-                        icon={jobIcon()}>
-                        <h3 className="vertical-timeline-element-title">Lead Programmer Robotics Club</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Champlain College Saint-Lambert</h4>
-                        <p>Competed and represented my school in CRC Robotics competitions. Participated as
-                            programmer of the robot (Arduino C++) and leader of the Java programming challenge
-                            team.</p>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className={"vertical-timeline-element--education"}
-                        contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
-                        contentArrowStyle={{borderRight: '7px solid  black'}}
-                        date={"June 2022 - August 2022"}
-                        iconStyle={{background: 'black', color: '#fff'}}
-                        visible={true}
-                        icon={jobIcon()}
-                    >
-                        <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
-                        <h4 className="vertical-timeline-element-subtitle">University of Sherbrooke, Quebec</h4>
-                        <p>Built and developed web components using TypeScript and the Lit framework for a
-                            federal research on computational critical thinking and logistic.</p>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className={"vertical-timeline-element--work"}
-                        contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
-                        contentArrowStyle={{borderRight: '7px solid  black'}}
-                        date={"February 2024 - May 2024"}
-                        iconStyle={{background: 'black', color: '#fff'}}
-                        icon={jobIcon()}
-                        visible={true}>
-                        <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
-                        <h4 className="vertical-timeline-element-subtitle">CAE</h4>
-                        <p>Deployment Technician - Control Force & Motion in charge or running tests on the
-                            simulators and generating reports to ensure the simulators behaviors were within the
-                            allowed delta set by the engineers. Collaborated in IoT projects to improve
-                            simulator behavior and features.</p>
-                    </VerticalTimelineElement>
-                </VerticalTimeline>
+                </Section>
             </div>
-        </div>
-        <div ref={testamonials} style={{alignItems: "center"}} className='bg-gray-200 flex justify-center py-16 gap-52 flex-wrap'>
-            <div>
-                <TestimonialContainer/>
-            </div>
-            <div>
-                <div className='border-l-[6px] border-black pl-3'>
-                    <div style={{fontFamily: 'Bebas Neue, cursive'}} className='text-[30px] leading-none mb-1'>Leave An Endorsement
-                    </div>
-                    <div
-                         className='w-[100%] md:w-[350px] text-[12px] font-sans text-[rgb(0,0,0,0.65)]'>
-                        {/* eslint-disable-next-line react/no-unescaped-entities */}
-                        Here you can will find endorsements from past colleagues and employers. If you would like to leave an endorsement, please fill out the form below and don't forget to include your name and company where you worked with me.
-                    </div>
-                </div>
-
-                <div style={{fontFamily: 'Bebas Neue, cursive'}} className='md:w-96'>
-                    <form action="" className='flex flex-col gap-7'>
-
-                        <div className='flex-col md:flex-row flex gap-5'>
-                            <div>
-                                <input
-                                    className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
-                                    type="text" name="" id="" placeholder='Full Name'/>
-                            </div>
-                            <div>
-                                <input
-                                    className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
-                                    type="text" name="" id="" placeholder='Company'/>
-                            </div>
-                        </div>
-                        <div>
-                            <textarea
-                                className='border-b-[1px] border-[rgba(0,0,0,0.3)] w-[100%] h-20 focus:px-3 focus:pt-3 duration-150 ease-in-out'
-                                placeholder='Message...'></textarea>
-                        </div>
-                        <div className='flex gap-3 md:mb-0'>
-                            <button style={{alignItems: "center"}}
-                                    className='flex justify-center w-10 h-10 bg-black rounded-full shadow-lg hover:scale-[105%] duration-200 ease-in-out'
-                                    type='submit'>{sendIconSVG()}</button>
-                            <button style={{alignItems: "center"}}
-                                    className='flex justify-center w-10 h-10 bg-white rounded-full border border-[lightgray] shadow-md hover:scale-[105%] duration-200 ease-in-out'
-                                    type='reset'>{clearIconSVG()}</button>
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
-
-        </div>
-    <div ref={contactMeSection}>
-        <Section goToSectionRef={contactMeSection} scrollTo={scrollToSection} showArrow={false}>
-            <div className={"flex flex-col"}>
-                <SectionTitle title={"Contact Me"}/>
-                <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
-
-                </div>
-            </div>
-        </Section>
-    </div>
-</>
-)
-    ;
+        </>
+    )
+        ;
 }
