@@ -18,30 +18,6 @@ export default function Section({
                                 }: SectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // useEffect(() => {
-    //     gsap.fromTo(
-    //         containerRef.current,
-    //         {
-    //             autoAlpha: 0,
-    //             y: -20,
-    //         },
-    //         {
-    //             y: 0,
-    //             autoAlpha: 1,
-    //             duration: 1,
-    //             ease: "power3.out",
-    //             scrollTrigger: {
-    //                 scroller: ".container",
-    //                 trigger: containerRef.current,
-    //                 start: "top 60%",
-    //                 end: "bottom 0%",
-    //                 toggleActions: "play none restart reverse",
-    //             },
-    //         }
-    //     );
-    //     return () => {};
-    // }, []);
-
     return (
         <div className="relative section bg-gray-200" ref={containerRef}>
             {children && (

@@ -10,6 +10,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import "react-multi-carousel/lib/styles.css";
 import SectionTitle from "@/app/components/SectionTitle";
 import TestimonialContainer from "@/app/components/TestimonialsComponent";
+import {Mail} from "lucide-react";
 
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
@@ -88,19 +89,51 @@ export default function Home() {
             </svg>
         )
     }
+    const linkdnSVG = () => {
+        return (
+            <svg width="31" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="black"/>
+                <path d="M23.1435 21.3295V29H18.2429V15.3636H22.8949V17.956H23.0369C23.3329 17.0919 23.8537 16.4142 24.5994 15.9229C25.3511 15.4317 26.227 15.1861 27.2273 15.1861C28.192 15.1861 29.0295 15.408 29.7397 15.8519C30.4558 16.2899 31.0092 16.8936 31.3999 17.663C31.7964 18.4324 31.9917 19.3113 31.9858 20.2997V29H27.0852V21.3295C27.0911 20.6548 26.9195 20.1251 26.5703 19.7404C26.227 19.3557 25.7476 19.1634 25.1321 19.1634C24.7296 19.1634 24.3775 19.2521 24.0756 19.4297C23.7797 19.6013 23.5518 19.8499 23.392 20.1754C23.2322 20.495 23.1494 20.8797 23.1435 21.3295Z" fill="white"/>
+                <rect x="11" y="15" width="5" height="14" fill="white"/>
+                <circle cx="13.5" cy="11.5" r="2.5" fill="white"/>
+            </svg>
+        )
+    }
+    const GitHubSVG = () => {
+        return (
+            <svg width="29" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0C16.5049 0 14.0342 0.49145 11.729 1.44629C9.42383 2.40113 7.32928 3.80066 5.56497 5.56497C2.00178 9.12817 0 13.9609 0 19C0 27.398 5.453 34.523 12.996 37.05C13.946 37.202 14.25 36.613 14.25 36.1V32.889C8.987 34.029 7.866 30.343 7.866 30.343C6.992 28.139 5.757 27.55 5.757 27.55C4.028 26.372 5.89 26.41 5.89 26.41C7.79 26.543 8.797 28.367 8.797 28.367C10.45 31.255 13.243 30.4 14.326 29.944C14.497 28.709 14.991 27.873 15.523 27.398C11.305 26.923 6.878 25.289 6.878 18.05C6.878 15.941 7.6 14.25 8.835 12.901C8.645 12.426 7.98 10.45 9.025 7.885C9.025 7.885 10.621 7.372 14.25 9.823C15.751 9.405 17.385 9.196 19 9.196C20.615 9.196 22.249 9.405 23.75 9.823C27.379 7.372 28.975 7.885 28.975 7.885C30.02 10.45 29.355 12.426 29.165 12.901C30.4 14.25 31.122 15.941 31.122 18.05C31.122 25.308 26.676 26.904 22.439 27.379C23.123 27.968 23.75 29.127 23.75 30.894V36.1C23.75 36.613 24.054 37.221 25.023 37.05C32.566 34.504 38 27.398 38 19C38 16.5049 37.5086 14.0342 36.5537 11.729C35.5989 9.42383 34.1993 7.32929 32.435 5.56497C30.6707 3.80066 28.5762 2.40113 26.271 1.44629C23.9658 0.49145 21.4951 0 19 0Z" fill="black"/>
+            </svg>
+        )
+    }
+    const MailSvg = () => {
+        return (
+            <svg fill="#000000" height="29" width="29" version="1.1" id="Layer_1"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 299.997 299.997">
+<g>
+	<g>
+		<path d="M149.996,0C67.157,0,0.001,67.158,0.001,149.997c0,82.837,67.156,150,149.995,150s150-67.163,150-150
+			C299.996,67.158,232.835,0,149.996,0z M149.999,52.686l88.763,55.35H61.236L149.999,52.686z M239.868,196.423h-0.009
+			c0,8.878-7.195,16.072-16.072,16.072H76.211c-8.878,0-16.072-7.195-16.072-16.072v-84.865c0-0.939,0.096-1.852,0.252-2.749
+			l84.808,52.883c0.104,0.065,0.215,0.109,0.322,0.169c0.112,0.062,0.226,0.122,0.34,0.179c0.599,0.309,1.216,0.558,1.847,0.721
+			c0.065,0.018,0.13,0.026,0.195,0.041c0.692,0.163,1.393,0.265,2.093,0.265h0.005c0.005,0,0.01,0,0.01,0
+			c0.7,0,1.401-0.099,2.093-0.265c0.065-0.016,0.13-0.023,0.195-0.041c0.63-0.163,1.245-0.412,1.847-0.721
+			c0.114-0.057,0.228-0.117,0.34-0.179c0.106-0.06,0.218-0.104,0.322-0.169l84.808-52.883c0.156,0.897,0.252,1.808,0.252,2.749
+			V196.423z"/>
+	</g>
+</g>
+</svg>
+        )
+    }
     return (
         <>
             <Navigation sectionHighlight={activeSection}/>
-            <div className={"section"}>
+            <div className="section">
                 <Section showArrow={true} goToSectionRef={aboutMeSection} scrollTo={scrollToSection}>
-                    <div
-                        ref={landingSection}
-                        className={"HomePageContainer"}
-                    >
-                        <div
-                            style={{fontFamily: 'Bebas Neue', textAlign: "center"}}
-                            className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg: mt-64"
-                        >
+                    <div ref={landingSection} className="HomePageContainer">
+                        <div style={{fontFamily: 'Bebas Neue', textAlign: "center"}}
+                             className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg:mt-64">
                             <div className="align-middle">Nicholas Martoccia</div>
                             <div className="align-bottom text-2xl my-32">
                                 <button
@@ -118,53 +151,53 @@ export default function Home() {
             </div>
             <div ref={aboutMeSection}>
                 <Section goToSectionRef={skillsSection} scrollTo={scrollToSection} showArrow={true}>
-                    <div className={"flex flex-col"}>
-                        <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
-                            <div className={"flex flex-col gap-4"}>
-                                <div className="w-[400px] h-[400px] bg-black rounded-full"/>
-                                <div className={"flex flex-row justify-center gap-10"}>
-                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
-                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
-                                    <div className="w-[60px] h-[60px] bg-stone-400 rounded-full"/>
+                    <div className={"flex flex-col justify-center"}>
+                    <div style={{alignItems: "center"}} className="flex flex-col md:flex-row justify-center md:justify-between gap-4 sm:gap-8 lg:gap-16 md:gap-16 xsm:gap-4">
+                        <div className="md:w-1/2 flex justify-center xsm:mb-0.5 mb-8 md:mb-0">
+                            <div className="flex flex-col gap-5 items-center">
+                                <div className="w-[250px] h-[250px] md:w-[370px] md:h-[370px] lg:w-[370px] lg:h-[370px] sm:w-[250px] sm:h-[250px] xsm:w-[150px] xsm:h-[150px] profilePic border"></div>
+                                <div style={{alignItems: "center"}} className="flex gap-6">
+                                    <a href='www.linkedin.com/in/nicholas-martoccia-98a56a26a' target="_blank" className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{linkdnSVG()}</a>
+                                    <a href='https://github.com/nic5694' target="_blank" className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{GitHubSVG()}</a>
+                                    <a href='' target="_blank" className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{MailSvg()}</a>
                                 </div>
                             </div>
-                            <div className="w-[40%] text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi risus,
-                                fringilla et sollicitudin id, dictum viverra nunc. Nam faucibus nec nisl eu varius.
-                                Etiam feugiat velit nec augue cursus fringilla. Duis eget elit neque. Praesent ex
-                                lacus, vestibulum vitae enim a.
-                                <br/>
-                                Currently a DEC graduate starting my Bachelors in Computer Science at Concordia
-                            </div>
                         </div>
-                        <div className={"text-center text-4xl sm:text 2xl:text font-bebas"}>
-                            Learn more about my my:
+                        <div className="md:w-1/2 lg:text-justify px-4 md:px-2 xl:px-6 xsm:px-2 lg:px-4">
+                            <p className="mb-8 lg:text-lg md:text-base sm:text-base xsm:mb-2 xsm:text-xs">
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                Throughout my academic journey, I have consistently achieved excellence, earning multiple placements on the Dean's List. My leadership extends beyond academics, as I have taken the helm of the programming team within the robotics club and the student cybersecurity club at my institution.
+                            </p>
+                            <p className="mb-8 lg:text-lg xsm:mb-2 sm:text-base md:text-base xsm:text-xs">
+                                As a Front-end Software Developer Intern at Université de Sherbrooke, I gained practical experience in crafting user-friendly web components using HTML, CSS, and Lit. My commitment to continuous learning drives me to acquire new skills and technologies, enabling me to tackle real-world challenges and contribute significantly to projects.
+                            </p>
                         </div>
-                        <div className={"flex flex-row justify-center py-3 gap-16"}>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
-                                        btnName={"Projects"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
-                                        btnName={"Work Experience"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"}/>
-                        </div>
-
+                    </div>
+                    <div className="text-center lg:text-4xl lg:py-6 xsm:text-lg xsm:mt-0.5 xsm:mb-0.5 sm:text-2xl xsm:text-lg font-bebas mt-8 mb-4">
+                        Learn more about my:
+                    </div>
+                    <div className="flex flex-col lg:gap-12 sm:flex-row xsm:flex-row xsm:gap-2 justify-center gap-3">
+                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection} btnName={"Projects"} />
+                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"} />
+                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection} btnName={"Work Experience"} />
+                        <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"} />
+                    </div>
                     </div>
                 </Section>
             </div>
+
             <div ref={skillsSection}>
                 <Section goToSectionRef={projectsSection} scrollTo={scrollToSection} showArrow={false}>
                     <div className="flex flex-col mx-4 md:mx-8 lg:mx-12 xl:mx-24">
 
                         <div className="flex flex-col md:flex-row justify-center">
-                            <div className="flex flex-col md:mx-6 gap-4 justify-center">
-                                <div className="text-5xl font-bebas">Skills</div>
-                                <div className="flex flex-col md:w-1/2">
-
-                                    The diagram provides a snapshot of some of my skills. For a more comprehensive view
-                                    of my capabilities, please explore the projects available on my GitHub profile
-                                    linked below. These repositories.
-                                    <div className='flex justify-start mt-5'>
+                            <div className="flex flex-col md:mx-6 gap-4 lg:gap-16 xsm:gap-2 justify-center">
+                                <div className="text-5xl lg:text-5xl font-bebas md:text-4xl xsm:text-4xl">Skills</div>
+                                <div className="flex flex-col md:text-base w-[90%] lg:text-lg py-3 xsm:text-xs">
+                                        The diagram provides a snapshot of some of my skills. For a more comprehensive view
+                                        of my capabilities, please explore the projects available on my GitHub profile
+                                        linked below. These repositories.
+                                    <div className='flex justify-start lg:justify-start md: justify-start xsm:justify-center xsm:mt-2 mt-5'>
                                         <button
                                             onClick={() => {
                                                 scrollToSection(projectsSection)
@@ -175,11 +208,10 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-3 justify-center">
-                                <div className="w-full md:w-96 lg:w-96 xl:w-[35vw] flex gap-3 flex-wrap justify-center">
+                            <div className="flex flex-col gap-3 sm:gap-2 py-3 justify-center">
+                                <div className="w-full md:w-96 lg:w-96 xl:w-[35vw] flex gap-3 xsm:gap-2 flex-wrap justify-center">
                                     <ProgressCircle percentage={90} text={"Java"}/>
                                     <ProgressCircle percentage={50} text={"C#"}/>
-                                    <ProgressCircle percentage={40} text={"PHP"}/>
                                     <ProgressCircle percentage={70}
                                                     text={"Python"}/>
                                     <ProgressCircle percentage={95}
@@ -323,23 +355,10 @@ export default function Home() {
                                             className='flex justify-center w-10 h-10 bg-white rounded-full border border-[lightgray] shadow-md hover:scale-[105%] duration-200 ease-in-out'
                                             type='reset'>{clearIconSVG()}</button>
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div ref={contactMeSection}>
-                <Section goToSectionRef={contactMeSection} scrollTo={scrollToSection} showArrow={false}>
-                    <div className={"flex flex-col"}>
-                        <SectionTitle title={"Contact Me"}/>
-                        <div style={{alignItems: "center"}} className="flex flex-row gap-44 justify-center">
-
-                        </div>
-                    </div>
-                </Section>
             </div>
         </>
     )
