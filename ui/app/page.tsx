@@ -11,6 +11,7 @@ import "react-multi-carousel/lib/styles.css";
 import SectionTitle from "@/app/components/SectionTitle";
 import TestimonialContainer from "@/app/components/TestimonialsComponent";
 import {Mail} from "lucide-react";
+import ProjectsContainer from "@/app/components/ProjectsContainer";
 
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
@@ -233,22 +234,18 @@ export default function Home() {
                     </div>
                 </Section>
             </div>
-
-
-            <div ref={projectsSection}>
-                <Section goToSectionRef={workExperienceSection} scrollTo={scrollToSection} showArrow={false}>
-                    <div className={"flex flex-row"}>
+            <div ref={projectsSection} className={"bg-gray-200 lg:mb-96"}>
+                {/*<Section goToSectionRef={workExperienceSection} scrollTo={scrollToSection} showArrow={false}>*/}
+                    <div className={"flex flex-col lg:gap-12"}>
                         <SectionTitle title={"Projects"}/>
-                        <div className={"flex flex-col"}>
-                            <div className="flex flex-row gap-44 justify-center">
-                                {/*<img*/}
-                                {/*    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fbackground&psig=AOvVaw3UQ1sg6TvSW9EbdXgVI7v9&ust=1707081180871000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMCZu4yLkIQDFQAAAAAdAAAAABAE"*/}
-                                {/*    alt="Project 2"/>*/}
-                            </div>
+                        <div className={"flex flex-wrap p-6 m-6 projectsSlide overflow-x-auto m-auto"}>
+                            <ProjectsContainer name={"Test"} description={"Custom developers portfolios typically have varying trends for showcasing their work. It’s tough knowing where to start a new website but it helps if you can study others to get some ideas."} link={"https://github.com/nic5694"}/>
+                            <ProjectsContainer name={"Test"} description={"Custom developers portfolios typically have varying trends for showcasing their work. It’s tough knowing where to start a new website but it helps if you can study others to get some ideas."} link={"https://github.com/nic5694"}/>
+                            <ProjectsContainer name={"Test"} description={"Custom developers portfolios typically have varying trends for showcasing their work. It’s tough knowing where to start a new website but it helps if you can study others to get some ideas."} link={"https://github.com/nic5694"}/>
                         </div>
 
                     </div>
-                </Section>
+                {/*</Section>*/}
             </div>
             <div ref={workExperienceSection}
                  className={"mt-20 md:mt-0 flex flex-col justify-center bg-gray-200 md:max-h-min sm:max-h-min lg:max-h-min"}>
@@ -319,7 +316,7 @@ export default function Home() {
                                  className='text-[30px] leading-none mb-1'>Leave An Endorsement
                             </div>
                             <div
-                                className='w-[100%] md:w-[350px] text-[12px] font-sans text-[rgb(0,0,0,0.65)]'>
+                                className='w-[100%] md:w-[350px] text-[12px] mb-2 font-sans text-[rgb(0,0,0,0.65)]'>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Here you can will find endorsements from past colleagues and employers. If you would
                                 like to leave an endorsement, please fill out the form below and do not forget to include

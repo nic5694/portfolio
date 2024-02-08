@@ -40,3 +40,12 @@
         border-radius: 100%;
 
 }
+body{
+    --tw-bg-opacity: 1;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+/*.projectsSlide{*/
+/*    overflow-x: auto;*/
+/*    margin: auto;*/
+/*    white-space: pre-wrap;*/
+/*}*/
