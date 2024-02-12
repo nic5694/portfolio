@@ -26,7 +26,11 @@ export default function Home() {
     const testamonials = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<number | null>(null);
 
-    const sections = []
+
+
+    const getTestimonials = async () => {
+
+    }
 
     const sendIconSVG = () => {
         return (
@@ -47,14 +51,6 @@ export default function Home() {
             </svg>
         )
     }
-
-
-    // function scrollToSection(section: MutableRefObject<HTMLDivElement | null>) {
-    //     if (section.current) {
-    //         section.current.scrollIntoView({behavior: "smooth", block: "end"});
-    //     }
-    // }
-
     const scrollToSection = (sectionRef: MutableRefObject<HTMLDivElement | null>) => {
         if (sectionRef.current) {
             sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -304,8 +300,8 @@ export default function Home() {
                             </div>
                         </div>
                         {/*Project3*/}
-                        <div className={"flex flex-wrap m-auto overflow-x-auto "}>
-                            <div className={"flex flex-col m-2 lg:max-w-xl mx-auto h-fit md:max-w-full"}>
+                        <div className={"flex"}>
+                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
                                 <div className={"projectImage h-1/2"}>
                                     <Image
                                         className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
@@ -325,7 +321,7 @@ export default function Home() {
                             </div>
                             {/*Project4*/}
                             <div
-                                className={"flex flex-col m-2  lg:max-w-xl mx-auto h-fit md:max-w-full xl:mt-48 xl:ml-3"}>
+                                className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
                                 <div className={"projectImage h-1/2"}>
                                     <Image
                                         className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
@@ -426,8 +422,7 @@ export default function Home() {
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Here you can will find endorsements from past colleagues and employers. If you would
                                 like to leave an endorsement, please fill out the form below and do not forget to
-                                include
-                                your name and company where you worked with me.
+                                include your name and company where you worked with me.
                             </div>
                         </div>
 
