@@ -26,12 +26,6 @@ export default function Home() {
     const testamonials = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<number | null>(null);
 
-
-
-    const getTestimonials = async () => {
-
-    }
-
     const sendIconSVG = () => {
         return (
             <svg width="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +59,38 @@ export default function Home() {
         { name: 'Testimonials', ref: testamonials },
 
     ];
+    const textareaRefTestimonial = useRef<HTMLTextAreaElement>();
+    const inputNameTestimonial = useRef<HTMLInputElement>();
+    const inputCompanyTestimonial = useRef<HTMLInputElement>();
+
+    const handleSubmit = async (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        const comment = textareaRefTestimonial.current?.value;
+        const name = inputNameTestimonial.current?.value;
+        const company = inputCompanyTestimonial.current?.value;
+
+        if (comment && name && company) {
+            const response = await fetch('http://localhost:8080/api/v1/services/endorsementService', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    company: company,
+                    comment: comment
+                })
+            });
+            response.text().then((text) => {
+                console.log(text);
+            });
+            //@ts-ignore
+            textareaRefTestimonial.current.value = '';
+            //@ts-ignore
+            inputNameTestimonial.current.value = '';
+            //@ts-ignore
+            inputCompanyTestimonial.current.value = '';
+    }}
 
 
     const githubLogoSvg = () => {
@@ -427,22 +453,28 @@ export default function Home() {
                         </div>
 
                         <div style={{fontFamily: 'Bebas Neue, cursive'}} className='md:w-96'>
-                            <form action="" className='flex flex-col gap-7'>
+                            <form action="post" onSubmit={handleSubmit} className='flex flex-col gap-7'>
 
                                 <div className='flex-col md:flex-row flex gap-5'>
                                     <div>
                                         <input
+                                            //@ts-ignore
+                                            ref={inputNameTestimonial}
                                             className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
                                             type="text" name="" id="" placeholder='Full Name'/>
                                     </div>
                                     <div>
                                         <input
+                                            //@ts-ignore
+                                            ref={inputCompanyTestimonial}
                                             className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
                                             type="text" name="" id="" placeholder='Company'/>
                                     </div>
                                 </div>
                                 <div>
                                 <textarea
+                                    //@ts-ignore
+                                    ref={textareaRefTestimonial}
                                     className='border-b-[1px] border-[rgba(0,0,0,0.3)] w-[100%] h-20 focus:px-3 focus:pt-3 duration-150 ease-in-out'
                                     placeholder='Message...'></textarea>
                                 </div>
