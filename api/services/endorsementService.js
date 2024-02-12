@@ -1,5 +1,6 @@
 const Endorsement = require('../models/Endorsement');
 const EndorsementStatus = require('../models/EndorsementStatus');
+const sendEmail = require("./emailService");
 
 async function getAllEndorsements(res) {
     try {
@@ -12,23 +13,40 @@ async function getAllEndorsements(res) {
 }
 
 async function addEndorsement(req, res){
-    try{
+    try {
+        console.log(req.body); // Log the request body
+
         req.body.status = EndorsementStatus.PENDING;
         const endorsement = new Endorsement(req.body);
         const newEndorsement = await endorsement.save();
+
+
+        let context = {
+            name: endorsement.name,
+            company: endorsement.company,
+            comment: endorsement.comment,
+            date: endorsement.date,
+            approveLink: process.env.BACKEND_URL + '/api/v1/services/endorsementService/' + endorsement._id + '/approve',
+            rejectLink: process.env.BACKEND_URL + '/api/v1/services/endorsementService/' + endorsement._id + '/reject'
+        }
+
+        await sendEmail('', 'nicholasmartoccia04@icloud.com', 'New Endorsement for portfolio!', 'confirmRecommendation', context).catch(
+            (err) => {
+                console.log(err)
+                res.status(422).json({message: 'error sending email'})
+            });
+
         res.status(201).json(newEndorsement);
-    }
-    catch (err){
-        res.status(400).json({ message: err.message });
+    } catch (err) {
+        console.error(err); // Log any errors
+        res.status(400).json({message: err.message});
     }
 }
-async function approveEndorsement(req, res){
-    try{
+
+async function approveEndorsement(req, res) {
+    try {
         const endorsement = await Endorsement.findById(req.params.id);
         endorsement.status = EndorsementStatus.APPROVED;
-        if (res.body.rating === undefined){
-            res.status(400).json({ message: "Rating needs to be set to finalize endorsement approval process." });
-        }
         const updatedEndorsement = await endorsement.save();
         res.status(200).json(updatedEndorsement);
     }catch (err){
