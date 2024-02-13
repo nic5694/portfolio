@@ -12,6 +12,7 @@ import TestimonialContainer from "@/app/components/TestimonialsComponent";
 import ProjectContainer from "@/app/components/projectContainer";
 //@ts-ignore
 import Typewriter from 'typewriter-effect/dist/core';
+import {toast} from "react-toastify";
 
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
@@ -95,7 +96,18 @@ export default function Home() {
                 })
             });
             response.text().then((text) => {
-                console.log(text);
+                toast.success('Please pick an permission for your observer code.', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: 'light',
+                });
+
+
             });
             //@ts-ignore
             textareaRefTestimonial.current.value = '';
@@ -103,6 +115,17 @@ export default function Home() {
             inputNameTestimonial.current.value = '';
             //@ts-ignore
             inputCompanyTestimonial.current.value = '';
+        } else{
+            toast.error('Please fill out all fields in the endorsement', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: 'light',
+            })
         }
     }
 
