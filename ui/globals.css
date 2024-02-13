@@ -44,6 +44,10 @@ body{
     --tw-bg-opacity: 1;
     background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+
+.chatbot {
+    background-image: url("images/chatbotimg.jpg");
+}
 /*.projectsSlide{*/
 /*    overflow-x: auto;*/
 /*    margin: auto;*/

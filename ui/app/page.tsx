@@ -16,6 +16,7 @@ import chatRoom from "../images/chatroom.png";
 import libraryManager from "../images/LibraryManager.png";
 import movingexpress from "../images/movingexpress.png";
 import quizcode from "../images/quizcode.png";
+import ProjectContainer from "@/app/components/projectContainer";
 
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
@@ -25,6 +26,12 @@ export default function Home() {
     const workExperienceSection = useRef<HTMLDivElement>(null);
     const testamonials = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<number | null>(null);
+
+    const descriptionChatRoom = "Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."
+    const descriptionMovingExpress = "Full-stack web app for a Montreal moving company, with Spring Boot and React (TypeScript). Features extensive documentation, allowing users to generate quotes, modify shipments, and generate reports. Auth0 handles user authentication, including social logins. Developed collaboratively, my contributions focused on authentication, email, shipment & quote services, PDF generation, and user & truck services."
+    const descriptionQuizCode = "IOS app built on the MVVM architecture, providing coding practice in HTML, Docker, Linux, PHP, JavaScript, and more. Offers interactive quizzes powered by QuizAPI.io and utilizes Firebase for storing users' scores using the singleton pattern, enabling progress tracking."
+    const descriptionLibraryManager = "Full-stack application aimed at simplifying library administration tasks, such as adding new libraries and updating books. Backend powered by Java Spring Boot using REST architecture with JPA and Hibernate ORM. Frontend developed in JavaScript, HTML, and styled with CSS and React-Bootstrap."
+    const descriptionEcoSmartHomeHub = "EcoSmart Home Hub is a small-scale IoT smart home project that utilizes Flask for the backend and React for the frontend. It offers device control, real-time environmental monitoring, and a user-friendly dashboard. The Flask backend manages data processing, device communication, and user authentication, while the React frontend communicates via RESTful APIs. This project empowers users to efficiently manage their home environment for sustainable living."
 
     const sendIconSVG = () => {
         return (
@@ -283,50 +290,51 @@ export default function Home() {
                     </div>
                 </Section>
             </div>
+            {/*Projects section*/}
             <div ref={projectsSection} className={"bg-gray-200 lg:mb-96"}>
                 <div className={"flex flex-col gap-12"}>
                     <SectionTitle title={"Projects"}/>
                     <div className={"flex flex-wrap p-6 m-6 projectsSlide overflow-x-auto m-auto"}>
                         {/*project 1*/}
-                        <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
-                            <div className={"projectImage h-1/2"}>
-                                <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                       src={chatRoom} alt="alt"/>
-                            </div>
-                            <div className={"h-1/2 bg-white"}>
-                                <div
-                                    className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"ChatRoom"}</div>
-                                <div
-                                    className={"text-base px-6"}>{"Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."}</div>
-                                <div className={"px-6 pt-3 py-2 flex"}>
-                                    <Link style={{alignItems: "center"}}
-                                          className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                          href={"https://github.com/nic5694/ChatRoom"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
+                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
+                                <div className={"projectImage h-1/2"}>
+                                    <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
+                                           src={chatRoom} alt="alt"/>
+                                </div>
+                                <div className={"h-1/2 bg-white"}>
+                                    <div
+                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"ChatRoom"}</div>
+                                    <div
+                                        className={"text-base px-6"}>{"Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."}</div>
+                                    <div className={"px-6 pt-3 py-2 flex"}>
+                                        <Link style={{alignItems: "center"}}
+                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
+                                              href={"https://github.com/nic5694/ChatRoom"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         {/*Project2
                         TODO UPDATE URL */}
-                        <div className={"flex flex-col m-2  lg:max-w-xl mx-auto h-fit md:max-w-full"}>
-                            <div className={"projectImage h-1/2"}>
-                                <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                       src={movingexpress} alt="alt"/>
-                            </div>
-                            <div className={"h-1/2 bg-white"}>
-                                <div
-                                    className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"Moving Express"}</div>
-                                <div
-                                    className={"text-base px-6"}>{"Moving Express is a full-stack web application developed for a moving company based in Montreal. It comprises a Spring Boot backend and a React frontend with TypeScript, utilizing Tailwind CSS and custom CSS for styling. The project includes comprehensive documentation featuring user stories and diagrams to support its functionality. Users can generate quotes, enabling shipment reviewers and moving estimators to communicate with clients and plan moves. Additionally, customers can log in to modify shipments and generate reports. The application implements user authentication and authorization using Auth0, supporting social third-party logins. Notably, this project was developed within a team, with contributions from me focusing on authentication, email service, shipment service, quote service, PDF document generation, user service, and truck service."}</div>
-                                <div className={"px-6 pt-3 py-2 flex"}>
-                                    <Link style={{alignItems: "center"}}
-                                          className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                          href={"https://github.com/nic5694/MovingExpress"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
+                            <div className={"flex flex-col m-2  lg:max-w-xl mx-auto h-fit md:max-w-full"}>
+                                <div className={"projectImage h-1/2"}>
+                                    <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
+                                           src={movingexpress} alt="alt"/>
+                                </div>
+                                <div className={"h-1/2 bg-white"}>
+                                    <div
+                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"Moving Express"}</div>
+                                    <div
+                                        className={"text-base px-6"}>{"Moving Express is a full-stack web application developed for a moving company based in Montreal. It comprises a Spring Boot backend and a React frontend with TypeScript, utilizing Tailwind CSS and custom CSS for styling. The project includes comprehensive documentation featuring user stories and diagrams to support its functionality. Users can generate quotes, enabling shipment reviewers and moving estimators to communicate with clients and plan moves. Additionally, customers can log in to modify shipments and generate reports. The application implements user authentication and authorization using Auth0, supporting social third-party logins. Notably, this project was developed within a team, with contributions from me focusing on authentication, email service, shipment service, quote service, PDF document generation, user service, and truck service."}</div>
+                                    <div className={"px-6 pt-3 py-2 flex"}>
+                                        <Link style={{alignItems: "center"}}
+                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
+                                              href={"https://github.com/nic5694/MovingExpress"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
                         {/*Project3*/}
-                        <div className={"flex"}>
                             <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
                                 <div className={"projectImage h-1/2"}>
                                     <Image
@@ -345,9 +353,9 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                            {/*Project4*/}
-                            <div
-                                className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
+
+                        {/*Project4*/}
+                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
                                 <div className={"projectImage h-1/2"}>
                                     <Image
                                         className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
@@ -365,10 +373,26 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
+
+
+            {/* youssef container */}
+            <div className="flex justify-center mb-40">
+                <div className="flex gap-10 flex-wrap justify-center">
+                    <ProjectContainer title={'ChatRoom'} description={descriptionChatRoom} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'Moving Express'} description={descriptionMovingExpress} githubLink={'https://github.com/nic5694/MovingExpress'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'Quiz Code'} description={descriptionQuizCode} githubLink={'https://github.com/nic5694/QuizCode'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'Silk Reads Library Manager'} description={descriptionLibraryManager} githubLink={'https://github.com/nic5694/LibraryManager'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'EcoSmart Home Hub'} description={descriptionEcoSmartHomeHub} githubLink={'https://github.com/nic5694/EcoSmart_Home_Hub'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
+                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
+
+                </div>
+            </div>
+
             {/*Work Experience*/}
             <div ref={workExperienceSection}
                  className={"mt-20 md:mt-0 flex flex-col justify-center bg-gray-200 md:max-h-min sm:max-h-min lg:max-h-min"}>

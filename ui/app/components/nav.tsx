@@ -31,14 +31,14 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
             {/*Mobile version*/}
 
             <div style={menuOpen ? {alignItems: "center", backgroundColor: "#2D2D2D"} : {alignItems: "center"}}
-                 className="px-5 py-4 flex justify-between lg:hidden ">
+                 className="px-5 py-4 flex justify-between lg:hidden bg-[#2D2D2D] ">
                 <div>
-                    <div className="w-24 2xl:w-48 text-lg font-thin tracking-wider" style={{fontFamily: 'Bebas Neue'}}>
+                    <div className="text-lg font-thin tracking-wider text-white" style={{fontFamily: 'Bebas Neue'}}>
                         Nicholas Martoccia
                     </div>
                 </div>
 
-                <div className='flex gap-5'>
+                <div className='flex md:hidden gap-5'>
 
                     <button
                         onClick={() => {
@@ -61,39 +61,44 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                 <div className='bg-white shadow-2xl'>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {scrollToSection(navSections[0].ref)}}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Home
+                        About
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {scrollToSection(navSections[1].ref)}}
+                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                    >
+                        Skills
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {scrollToSection(navSections[2].ref)}}
+                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                    >
+                        Projects
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {scrollToSection(navSections[3].ref)}}
+                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                    >
+                        Work Experience
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {scrollToSection(navSections[4].ref)}}
+                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                    >
+                        Testimonials
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Shipment Quote
-                    </div>
-                    <div
-                        style={{fontFamily: 'Bebas Neue, cursive'}}
-                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
-                    >
-                        Shipments
-                    </div>
-                    <div
-                        style={{fontFamily: 'Bebas Neue, cursive'}}
-                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
-                    >
-                        Contact Us
-                    </div>
-                    <div
-                        style={{fontFamily: 'Bebas Neue, cursive'}}
-                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
-                    >
-                        Profile
-                    </div>
-                    <div
-                        style={{fontFamily: 'Bebas Neue, cursive'}}
-                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
-                    >
-                        Log Out
+                        Resume
                     </div>
                 </div>
             </div>
@@ -101,9 +106,9 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
 
             {/*Desktop*/}
             <div
-                className="bg-[#2D2D2D] px-5 py-4 lg:flex lg:justify-between lg:items-center text-white fixed w-full top-0 z-50">
+                className="bg-[#2D2D2D] px-5 py-4 hidden md:flex lg:justify-between lg:items-center text-white fixed w-full top-0 z-50">
                 <div className="flex items-center">
-                    <div className="w-32 2xl:w-48 text-lg font-thin tracking-wider" style={{fontFamily: 'Bebas Neue'}}>
+                    <div className="text-lg font-thin tracking-wider text-white" style={{fontFamily: 'Bebas Neue'}}>
                         Nicholas Martoccia
                     </div>
                 </div>
