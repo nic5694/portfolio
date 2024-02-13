@@ -204,30 +204,26 @@ export default function Home() {
                                     <div
                                         className="w-[250px] h-[250px] md:w-[370px] md:h-[370px] lg:w-[370px] lg:h-[370px] sm:w-[250px] sm:h-[250px] xsm:w-[150px] xsm:h-[150px] profilePic border"></div>
                                     <div style={{alignItems: "center"}} className="flex gap-6">
-                                        <a href='www.linkedin.com/in/nicholas-martoccia-98a56a26a' target="_blank"
+                                        <a href='https://www.linkedin.com/in/nicholas-martoccia-98a56a26a' target="_blank"
                                            className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{linkdnSVG()}</a>
                                         <a href='https://github.com/nic5694' target="_blank"
                                            className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{GitHubSVG()}</a>
-                                        <a href='' target="_blank"
+                                        <a href='mailto:nicholasmartoccia04@icloud.com' target="_blank"
                                            className='hover:cursor-pointer hover:scale-110 duration-200 ease-out'>{MailSvg()}</a>
                                     </div>
                                 </div>
                             </div>
                             <div className="md:w-1/2 lg:text-justify px-4 md:px-2 xl:px-6 xsm:px-2 lg:px-4">
-                                <p className="mb-8 lg:text-lg md:text-base sm:text-base xsm:mb-2 xsm:text-xs">
-                                    Throughout my academic journey, I have consistently achieved excellence, earning
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                    multiple placements on the Dean 's List. My leadership extends beyond academics, as
-                                    I
-                                    have taken the helm of the programming team within the robotics club and the student
-                                    cybersecurity club at my institution.
-                                </p>
                                 <p className="mb-8 lg:text-lg xsm:mb-2 sm:text-base md:text-base xsm:text-xs">
-                                    As a Front-end Software Developer Intern at Université de Sherbrooke, I gained
-                                    practical experience in crafting user-friendly web components using HTML, CSS, and
-                                    Lit. My commitment to continuous learning drives me to acquire new skills and
-                                    technologies, enabling me to tackle real-world challenges and contribute
-                                    significantly to projects.
+                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                    Throughout my academic journey, I have consistently achieved excellence, earning multiple accolades on the Dean's List. My leadership extends beyond academics. I have led the programming team within the robotics club and the student cybersecurity club at my institution.
+                                    </p>
+                                <p className={"mb-8 pt-4 lg:text-lg xsm:mb-2 sm:text-base md:text-base xsm:text-xs"}>
+                                    In my role as a Front-end Software Developer Intern at Université de Sherbrooke, I
+                                    gained practical experience in crafting user-friendly web components using HTML,
+                                    CSS, and Lit. My commitment to continuous learning has enabled me to acquire new
+                                    skills and technologies. This has equipped me to tackle real-world challenges and
+                                    make significant contributions to projects.
                                 </p>
                             </div>
                         </div>
@@ -403,7 +399,7 @@ export default function Home() {
                             <div
                                 className='w-[100%] md:w-[350px] text-[12px] mb-2 font-sans text-[rgb(0,0,0,0.65)]'>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Here you can will find endorsements from past colleagues and employers. If you would
+                                Here you will find endorsements from past colleagues and employers. If you would
                                 like to leave an endorsement, please fill out the form below and do not forget to
                                 include your name and company where you worked with me.
                             </div>
