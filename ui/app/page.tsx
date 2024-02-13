@@ -2,7 +2,6 @@
 import {Navigation} from "@/app/components/nav";
 import {MutableRefObject, useEffect, useRef, useState} from "react";
 import Section from "@/app/components/section";
-// @ts-ignore
 import SectionBtn from "@/app/components/SectionBtn";
 import ProgressCircle from "@/app/components/ProgressCircle";
 import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component";
@@ -10,13 +9,9 @@ import 'react-vertical-timeline-component/style.min.css';
 import "react-multi-carousel/lib/styles.css";
 import SectionTitle from "@/app/components/SectionTitle";
 import TestimonialContainer from "@/app/components/TestimonialsComponent";
-import Image from "next/image";
-import Link from "next/link";
-import chatRoom from "../images/chatroom.png";
-import libraryManager from "../images/LibraryManager.png";
-import movingexpress from "../images/movingexpress.png";
-import quizcode from "../images/quizcode.png";
 import ProjectContainer from "@/app/components/projectContainer";
+//@ts-ignore
+import Typewriter from 'typewriter-effect/dist/core';
 
 export default function Home() {
     const landingSection = useRef<HTMLDivElement>(null);
@@ -52,18 +47,29 @@ export default function Home() {
             </svg>
         )
     }
+    useEffect(() => {
+        var Tag = document.getElementById('Tags');
+
+        var typewriter = new Typewriter(Tag, {
+            loop: true,
+            delay: 75,
+            strings: ['< Backend Developer / >', '< Computer Science Student / >'],
+            autoStart: true,
+        });
+    })
+
     const scrollToSection = (sectionRef: MutableRefObject<HTMLDivElement | null>) => {
         if (sectionRef.current) {
-            sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+            sectionRef.current.scrollIntoView({behavior: "smooth", block: "end"});
         }
     };
 
     const navSections = [
-        { name: 'About', ref: aboutMeSection },
-        { name: 'Skills', ref: skillsSection },
-        { name: 'Projects', ref: projectsSection },
-        { name: 'Work Experience', ref: workExperienceSection },
-        { name: 'Testimonials', ref: testamonials },
+        {name: 'About', ref: aboutMeSection},
+        {name: 'Skills', ref: skillsSection},
+        {name: 'Projects', ref: projectsSection},
+        {name: 'Work Experience', ref: workExperienceSection},
+        {name: 'Testimonials', ref: testamonials},
 
     ];
     const textareaRefTestimonial = useRef<HTMLTextAreaElement>();
@@ -77,7 +83,7 @@ export default function Home() {
         const company = inputCompanyTestimonial.current?.value;
 
         if (comment && name && company) {
-            const response = await fetch('http://localhost:8080/api/v1/services/endorsementService', {
+            const response = await fetch('https://portfolio-express-js-api.onrender.com/api/v1/services/endorsementService', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,7 +103,8 @@ export default function Home() {
             inputNameTestimonial.current.value = '';
             //@ts-ignore
             inputCompanyTestimonial.current.value = '';
-    }}
+        }
+    }
 
 
     const githubLogoSvg = () => {
@@ -169,9 +176,11 @@ export default function Home() {
                 <Section showArrow={true} goToSectionRef={aboutMeSection} scrollTo={scrollToSection}>
                     <div ref={landingSection} className="HomePageContainer">
                         <div style={{fontFamily: 'Bebas Neue', textAlign: "center"}}
-                             className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg:mt-64">
+                             className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg:mt-80">
                             <div className="align-middle">Nicholas Martoccia</div>
-                            <div className="align-bottom text-2xl my-32">
+                            <div id='Tags'
+                                 className='font-bebas my-8 text-[45px] text-center lg:text-center text-white md:text-[35px]'></div>
+                            <div className="align-bottom text-2xl my-8">
                                 <button
                                     onClick={() => {
                                         scrollToSection(aboutMeSection);
@@ -228,14 +237,17 @@ export default function Home() {
                         </div>
                         <div
                             className="flex flex-col lg:gap-12 sm:flex-row xsm:flex-row xsm:gap-2 justify-center gap-3">
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
                                         btnName={"Projects"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
                                         btnName={"Work Experience"}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={testamonials}
                                         btnName={"Testamonials"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={aboutMeSection} btnName={"Resume"}/>
+                            <div className='flex justify-center'>
+                                <a href="/CV-Nicholas_Martoccia.pdf" download
+                                   className={"bg-zinc-100 text-lg sm:text-xl lg:text-2xl m-auto font-bebas p-2 xsm:p-0.5 lg:px-4 md:px-3 lg:py-3 px-5 sm:px-7 xsm:px-2 text-gray-600"}>Resume</a>
+                            </div>
                         </div>
                     </div>
                 </Section>
@@ -292,104 +304,25 @@ export default function Home() {
             </div>
             {/*Projects section*/}
             <div ref={projectsSection} className={"bg-gray-200 lg:mb-96"}>
-                <div className={"flex flex-col gap-12"}>
-                    <SectionTitle title={"Projects"}/>
-                    <div className={"flex flex-wrap p-6 m-6 projectsSlide overflow-x-auto m-auto"}>
-                        {/*project 1*/}
-                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
-                                <div className={"projectImage h-1/2"}>
-                                    <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                           src={chatRoom} alt="alt"/>
-                                </div>
-                                <div className={"h-1/2 bg-white"}>
-                                    <div
-                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"ChatRoom"}</div>
-                                    <div
-                                        className={"text-base px-6"}>{"Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."}</div>
-                                    <div className={"px-6 pt-3 py-2 flex"}>
-                                        <Link style={{alignItems: "center"}}
-                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                              href={"https://github.com/nic5694/ChatRoom"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
-                                    </div>
-                                </div>
-                            </div>
+                <SectionTitle title={"Projects"}/>
+                <div className="flex justify-center mb-40 py-12">
+                    <div className="flex gap-10 flex-wrap justify-center">
+                        <ProjectContainer title={'ChatRoom'} description={descriptionChatRoom}
+                                          githubLink={'https://github.com/nic5694/ChatRoom'}
+                                          pictureClassName={'chatbot'}/>
+                        <ProjectContainer title={'Moving Express'} description={descriptionMovingExpress}
+                                          githubLink={'https://github.com/nic5694/MovingExpress'}
+                                          pictureClassName={'moving'}/>
+                        <ProjectContainer title={'Quiz Code'} description={descriptionQuizCode}
+                                          githubLink={'https://github.com/nic5694/QuizCode'} pictureClassName={'quiz'}/>
+                        <ProjectContainer title={'Silk Reads Library Manager'} description={descriptionLibraryManager}
+                                          githubLink={'https://github.com/nic5694/LibraryManager'}
+                                          pictureClassName={'library'}/>
+                        <ProjectContainer title={'EcoSmart Home Hub'} description={descriptionEcoSmartHomeHub}
+                                          githubLink={'https://github.com/nic5694/EcoSmart_Home_Hub'}
+                                          pictureClassName={'smarthome'}/>
 
-                        {/*Project2
-                        TODO UPDATE URL */}
-                            <div className={"flex flex-col m-2  lg:max-w-xl mx-auto h-fit md:max-w-full"}>
-                                <div className={"projectImage h-1/2"}>
-                                    <Image className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                           src={movingexpress} alt="alt"/>
-                                </div>
-                                <div className={"h-1/2 bg-white"}>
-                                    <div
-                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"Moving Express"}</div>
-                                    <div
-                                        className={"text-base px-6"}>{"Moving Express is a full-stack web application developed for a moving company based in Montreal. It comprises a Spring Boot backend and a React frontend with TypeScript, utilizing Tailwind CSS and custom CSS for styling. The project includes comprehensive documentation featuring user stories and diagrams to support its functionality. Users can generate quotes, enabling shipment reviewers and moving estimators to communicate with clients and plan moves. Additionally, customers can log in to modify shipments and generate reports. The application implements user authentication and authorization using Auth0, supporting social third-party logins. Notably, this project was developed within a team, with contributions from me focusing on authentication, email service, shipment service, quote service, PDF document generation, user service, and truck service."}</div>
-                                    <div className={"px-6 pt-3 py-2 flex"}>
-                                        <Link style={{alignItems: "center"}}
-                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                              href={"https://github.com/nic5694/MovingExpress"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {/*Project3*/}
-                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
-                                <div className={"projectImage h-1/2"}>
-                                    <Image
-                                        className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                        src={quizcode} alt="alt"/>
-                                </div>
-                                <div className={"h-1/2 bg-white"}>
-                                    <div
-                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"Quiz Code"}</div>
-                                    <div
-                                        className={"text-base px-6"}>{"Quiz Code is a comprehensive iOS application designed to help students practice and enhance their coding skills across various topics including HTML, Docker, Linux, PHP, JavaScript, and more. It provides an interactive platform for users to engage in coding quizzes, powered by the QuizAPI.io service. Additionally, the application utilizes Firebase to store users' past scores, enabling them to track their progress over time."}</div>
-                                    <div className={"px-6 pt-3 py-2 flex"}>
-                                        <Link style={{alignItems: "center"}}
-                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                              href={"https://github.com/nic5694/QuizCode"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {/*Project4*/}
-                            <div className={"flex flex-col m-2 xlg:w-80 lg:max-w-xl mx-auto h-fit lg::max-w-full"}>
-                                <div className={"projectImage h-1/2"}>
-                                    <Image
-                                        className={"h-[100%] md:m-auto md:mb-2 sm:m-auto sm:mb-2 xsm:m-auto xsm:mb-2"}
-                                        src={libraryManager} alt="alt"/>
-                                </div>
-                                <div className={"h-1/2 bg-white"}>
-                                    <div
-                                        className={"lg:text-3xl xsm:text-2xl sm:text:2xl py-1 justify-start mb-2 px-6"}>{"Silk Reads Library manager"}</div>
-                                    <div
-                                        className={"text-base px-6"}>{"Silk Reads Library manager is a full stack Library managing application with the goal of streamlining library administrating tasks. This includes adding new libraries, books and updating existing books. This application consitutes of a Java SpringBoot backend based on REST architecture, implemented with the JPA framework and hibernate ORM. For the frontend the application is written in JavaScript, HTML and styled with CSS and React-Bootstrap."}</div>
-                                    <div className={"px-6 pt-3 py-2 flex"}>
-                                        <Link style={{alignItems: "center"}}
-                                              className={"border-[1.5px] pl-5 pr-2 border-black py-1 gap-3 rounded-full text-sm flex hover:gap-5 ease-in-out"}
-                                              href={"https://github.com/nic5694/LibraryManager"}><span>Repository</span><span>{GitHubSVG()}</span></Link>
-                                    </div>
-                                </div>
-                            </div>
                     </div>
-                </div>
-            </div>
-
-
-            {/* youssef container */}
-            <div className="flex justify-center mb-40">
-                <div className="flex gap-10 flex-wrap justify-center">
-                    <ProjectContainer title={'ChatRoom'} description={descriptionChatRoom} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'Moving Express'} description={descriptionMovingExpress} githubLink={'https://github.com/nic5694/MovingExpress'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'Quiz Code'} description={descriptionQuizCode} githubLink={'https://github.com/nic5694/QuizCode'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'Silk Reads Library Manager'} description={descriptionLibraryManager} githubLink={'https://github.com/nic5694/LibraryManager'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'EcoSmart Home Hub'} description={descriptionEcoSmartHomeHub} githubLink={'https://github.com/nic5694/EcoSmart_Home_Hub'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
-                    <ProjectContainer title={'ChatRoom'} description={'chatroom description'} githubLink={'https://github.com/nic5694/ChatRoom'} pictureClassName={'chatbot'} />
-
                 </div>
             </div>
 

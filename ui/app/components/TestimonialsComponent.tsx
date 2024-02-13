@@ -55,7 +55,7 @@ function TestimonialContainer() {
 
     const getNewTestimonial = async () => {
         setIsLoadingNewTestimonials(true)
-        axios.get("http://localhost:8080/api/v1/services/endorsementService")
+        axios.get(" https://portfolio-express-js-api.onrender.com/api/v1/services/endorsementService")
             .then((response) => {
                 const data = response.data
                 const randomIndex = Math.floor(Math.random() * data.length)

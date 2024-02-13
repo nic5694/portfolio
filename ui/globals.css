@@ -48,8 +48,16 @@ body{
 .chatbot {
     background-image: url("images/chatbotimg.jpg");
 }
-/*.projectsSlide{*/
-/*    overflow-x: auto;*/
-/*    margin: auto;*/
-/*    white-space: pre-wrap;*/
-/*}*/
+.moving {
+    background-image: url("images/moving.png");
+}
+.quiz{
+    background-image: url("images/quiz.png");
+}
+.library {
+    background-image: url("images/library.png");
+}
+.smarthome{
+    background-image: url("images/smarthome.png");
+
+}

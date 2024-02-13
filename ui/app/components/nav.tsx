@@ -61,45 +61,57 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                 <div className='bg-white shadow-2xl'>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
-                        onClick={() => {scrollToSection(navSections[0].ref)}}
+                        onClick={() => {
+                            scrollToSection(navSections[0].ref)
+                        }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
                         About
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
-                        onClick={() => {scrollToSection(navSections[1].ref)}}
+                        onClick={() => {
+                            scrollToSection(navSections[1].ref)
+                        }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
                         Skills
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
-                        onClick={() => {scrollToSection(navSections[2].ref)}}
+                        onClick={() => {
+                            scrollToSection(navSections[2].ref)
+                        }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
                         Projects
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
-                        onClick={() => {scrollToSection(navSections[3].ref)}}
+                        onClick={() => {
+                            scrollToSection(navSections[3].ref)
+                        }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
                         Work Experience
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
-                        onClick={() => {scrollToSection(navSections[4].ref)}}
+                        onClick={() => {
+                            scrollToSection(navSections[4].ref)
+                        }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
                         Testimonials
                     </div>
-                    <div
-                        style={{fontFamily: 'Bebas Neue, cursive'}}
-                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
-                    >
-                        Resume
-                    </div>
+                    <a href="/CV-Nicholas_Martoccia.pdf" download>
+                        <div
+                            style={{fontFamily: 'Bebas Neue, cursive'}}
+                            className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                        >
+                            Resume
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -127,10 +139,13 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                             {section.name}
                         </div>
                     ))}
-                    <div className="hover:underline underline-offset-4 decoration-2 text-lg  decoration-companyYellow"
-                         style={{fontFamily: 'Bebas Neue'}}>
-                        Resume
-                    </div>
+                    <a href="/CV-Nicholas_Martoccia.pdf" download>
+                        <div
+                            className="hover:underline underline-offset-4 decoration-2 text-lg  decoration-companyYellow"
+                            style={{fontFamily: 'Bebas Neue'}}>
+                            Resume
+                        </div>
+                    </a>
                 </div>
             </div>
         </>

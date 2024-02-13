@@ -18,7 +18,9 @@
     "react-dom": "^18",
     "react-multi-carousel": "^2.8.4",
     "react-vertical-timeline-component": "^3.6.0",
-    "toastify": "^2.0.1"
+    "toastify": "^2.0.1",
+    "typewriter": "^9.1.0",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
