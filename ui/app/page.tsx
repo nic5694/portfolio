@@ -54,7 +54,7 @@ export default function Home() {
         var typewriter = new Typewriter(Tag, {
             loop: true,
             delay: 75,
-            strings: ['< Backend Developer / >', '< Computer Science Student / >'],
+            strings: ['< Software Developer / >', '< Computer Science Student / >'],
             autoStart: true,
         });
     })
