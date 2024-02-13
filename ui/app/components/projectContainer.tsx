@@ -19,7 +19,7 @@ export default function ProjectContainer({title, description,githubLink, picture
 
                 onMouseOver={() => {setShowDetails(true)}}
 
-                className={`bg-white shadow-xl w-[350px] h-[500px] rounded-[40px] opacity-50 hover:opacity-100 hover:scale-105 duration-300 ease-in-out ${pictureClassName} `}
+                className={`bg-white shadow-xl w-[350px] h-[500px] rounded-[40px] opacity-100 hover:scale-105 duration-300 ease-in-out ${pictureClassName} `}
             >
                 {
                     showDetails &&
