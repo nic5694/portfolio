@@ -96,7 +96,7 @@ export default function Home() {
                 })
             });
             response.text().then((text) => {
-                toast.success('Please pick an permission for your observer code.', {
+                toast.success('Your testimonial has been submitted.', {
                     position: 'top-right',
                     autoClose: 5000,
                     hideProgressBar: false,
