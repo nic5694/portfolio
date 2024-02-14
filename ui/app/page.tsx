@@ -355,6 +355,22 @@ export default function Home() {
                             className={"vertical-timeline-element--work"}
                             contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
                             contentArrowStyle={{borderRight: '7px solid  black'}}
+                            date={"February 2024 - May 2024"}
+                            iconStyle={{background: 'black', color: '#fff'}}
+                            icon={jobIcon()}
+                            visible={true}>
+                            <h3 className="vertical-timeline-element-title">Deployment Technician - Control Force &
+                                Motion</h3>
+                            <h4 className="vertical-timeline-element-subtitle">CAE</h4>
+                            <p>Was put in charge or running tests on the
+                                simulators and generating reports to ensure the simulators behaviors were within the
+                                allowed delta set by the engineers. Collaborated in IoT projects to improve
+                                simulator behavior and features.</p>
+                        </VerticalTimelineElement>
+                        <VerticalTimelineElement
+                            className={"vertical-timeline-element--work"}
+                            contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
+                            contentArrowStyle={{borderRight: '7px solid  black'}}
                             date={"January 2022 - January 2024"}
                             iconStyle={{background: 'black', color: '#fff'}}
                             visible={true}
@@ -383,22 +399,7 @@ export default function Home() {
                             <p>Built and developed web components using TypeScript and the Lit framework for a
                                 federal research on computational critical thinking and logistic.</p>
                         </VerticalTimelineElement>
-                        <VerticalTimelineElement
-                            className={"vertical-timeline-element--work"}
-                            contentStyle={{background: 'white', color: 'black', border: "solid 2px black"}}
-                            contentArrowStyle={{borderRight: '7px solid  black'}}
-                            date={"February 2024 - May 2024"}
-                            iconStyle={{background: 'black', color: '#fff'}}
-                            icon={jobIcon()}
-                            visible={true}>
-                            <h3 className="vertical-timeline-element-title">Deployment Technician - Control Force &
-                                Motion</h3>
-                            <h4 className="vertical-timeline-element-subtitle">CAE</h4>
-                            <p>Was put in charge or running tests on the
-                                simulators and generating reports to ensure the simulators behaviors were within the
-                                allowed delta set by the engineers. Collaborated in IoT projects to improve
-                                simulator behavior and features.</p>
-                        </VerticalTimelineElement>
+
                     </VerticalTimeline>
                 </div>
             </div>
