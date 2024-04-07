@@ -4,7 +4,7 @@ import { Config } from 'tailwindcss';
 const colors = require('tailwindcss/colors');
 
 const config: Config = {
-  content: ["./app/components/*.{js,ts,jsx,tsx}", "./app/*.{js,ts,jsx,tsx}", "./app/components/nav.tsx"],
+  content: ["./app/[lang]/components/*.{js,ts,jsx,tsx}", "./app/[lang]/*.{js,ts,jsx,tsx}", "./app/[lang]/components/nav.tsx"],
   theme: {
     screens: {
       xsm: '320px',

@@ -1,11 +1,18 @@
-import "../globals.css";
+import "../../globals.css";
 import {Analytics} from "@vercel/analytics/react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Locale, i18n } from '@/i18n.config';
+
+export async function generateStaticParams() {
+    return i18n.locales.map(locale => ({ lang: locale }))
+}
 export default function RootLayout({
                                        children,
+                                       params
                                    }: {
     children: React.ReactNode;
+    params:{lang:Locale}
 }) {
 
     return (
@@ -18,6 +25,7 @@ export default function RootLayout({
                 href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karantina:wght@300;400;700&display=swap"
                 rel="stylesheet"
             />
+            <title>Nicholas Martoccia</title>
         </head>
         <body>
         <ToastContainer/>

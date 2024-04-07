@@ -1,26 +1,49 @@
 'use client';
-import {Navigation} from "@/app/components/nav";
+import {Navigation} from "@/app/[lang]/components/nav";
 import {MutableRefObject, useEffect, useRef, useState} from "react";
-import Section from "@/app/components/section";
-import SectionBtn from "@/app/components/SectionBtn";
-import ProgressCircle from "@/app/components/ProgressCircle";
+import Section from "@/app/[lang]/components/section";
+import SectionBtn from "@/app/[lang]/components/SectionBtn";
+import ProgressCircle from "@/app/[lang]/components/ProgressCircle";
 import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component";
 import 'react-vertical-timeline-component/style.min.css';
 import "react-multi-carousel/lib/styles.css";
-import SectionTitle from "@/app/components/SectionTitle";
-import TestimonialContainer from "@/app/components/TestimonialsComponent";
-import ProjectContainer from "@/app/components/projectContainer";
+import SectionTitle from "@/app/[lang]/components/SectionTitle";
+import TestimonialContainer from "@/app/[lang]/components/TestimonialsComponent";
+import ProjectContainer from "@/app/[lang]/components/projectContainer";
 //@ts-ignore
 import Typewriter from 'typewriter-effect/dist/core';
 import {toast} from "react-toastify";
+import { Locale } from '@/i18n.config'
+import {getDictionary} from "@/lib/dictionary";
 
-export default function Home() {
+
+
+export default function Home({
+    params: {lang}
+                             }:{
+    params: {lang: Locale}
+}) {
+    const [page, setPage] = useState<DictionaryInterface | any>(null);
+
+    useEffect(() => {
+        const fetchPageData = async () => {
+            try {
+                const dictionaryPage = await getDictionary(lang);
+                setPage(dictionaryPage);
+            } catch (error) {
+                console.error('Error fetching dictionary:', error);
+                // Handle error if needed
+            }
+        };
+
+        fetchPageData();
+    }, [lang]);
     const landingSection = useRef<HTMLDivElement>(null);
     const aboutMeSection = useRef<HTMLDivElement>(null);
     const skillsSection = useRef<HTMLDivElement>(null);
     const projectsSection = useRef<HTMLDivElement>(null);
     const workExperienceSection = useRef<HTMLDivElement>(null);
-    const testamonials = useRef<HTMLDivElement>(null);
+    const testimonials = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<number | null>(null);
 
     const descriptionChatRoom = "Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."
@@ -54,7 +77,7 @@ export default function Home() {
         var typewriter = new Typewriter(Tag, {
             loop: true,
             delay: 75,
-            strings: ['< Software Developer / >', '< Computer Science Student / >'],
+            strings: [page?.page.landingpage["typeout string1"], page?.page.landingpage["typeout string2"]],
             autoStart: true,
         });
     })
@@ -70,7 +93,7 @@ export default function Home() {
         {name: 'Skills', ref: skillsSection},
         {name: 'Projects', ref: projectsSection},
         {name: 'Work Experience', ref: workExperienceSection},
-        {name: 'Testimonials', ref: testamonials},
+        {name: 'Testimonials', ref: testimonials},
 
     ];
     const textareaRefTestimonial = useRef<HTMLTextAreaElement>();
@@ -200,7 +223,7 @@ export default function Home() {
                     <div ref={landingSection} className="HomePageContainer">
                         <div style={{fontFamily: 'Bebas Neue', textAlign: "center"}}
                              className="text-white text-5xl sm:text-7xl mt-80 2xl:text-[120px] lg:mt-80">
-                            <div className="align-middle">Nicholas Martoccia</div>
+                            <div className="align-middle">{page?.page.landingpage.name ?? ''}</div>
                             <div id='Tags'
                                  className='font-bebas my-8 text-[45px] text-center lg:text-center text-white md:text-[35px]'></div>
                             <div className="align-bottom text-2xl my-8">
@@ -210,7 +233,7 @@ export default function Home() {
                                     }}
                                     className="bg-gray-400 py-2 px-2 rounded"
                                 >
-                                    Enter Portfolio
+                                    {page?.page.landingpage["enter btn"]}
                                 </button>
                             </div>
                         </div>
@@ -238,34 +261,29 @@ export default function Home() {
                             </div>
                             <div className="md:w-1/2 lg:text-justify px-4 md:px-2 xl:px-6 xsm:px-2 lg:px-4">
                                 <p className="mb-8 lg:text-lg xsm:mb-2 sm:text-base md:text-base xsm:text-xs">
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                    Throughout my academic journey, I have consistently achieved excellence, earning multiple accolades on the Dean's List. My leadership extends beyond academics. I have led the programming team within the robotics club and the student cybersecurity club at my institution.
+                                    {page?.page.about.paragraph1}
                                     </p>
                                 <p className={"mb-8 pt-4 lg:text-lg xsm:mb-2 sm:text-base md:text-base xsm:text-xs"}>
-                                    In my role as a Front-end Software Developer Intern at Université de Sherbrooke, I
-                                    gained practical experience in crafting user-friendly web components using HTML,
-                                    CSS, and Lit. My commitment to continuous learning has enabled me to acquire new
-                                    skills and technologies. This has equipped me to tackle real-world challenges and
-                                    make significant contributions to projects.
+                                    {page?.page.about.paragraph2}
                                 </p>
                             </div>
                         </div>
                         <div
                             className="text-center lg:text-4xl lg:py-6 xsm:text-lg xsm:mt-0.5 xsm:mb-0.5 sm:text-2xl xsm:text-lg font-bebas mt-8 mb-4">
-                            Learn more about my:
+                            {page?.page.about["learn more header"].header}
                         </div>
                         <div
                             className="flex flex-col lg:gap-12 sm:flex-row xsm:flex-row xsm:gap-2 justify-center gap-3">
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={"Skills"}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={skillsSection} btnName={page?.page.about["learn more header"].skills}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={projectsSection}
-                                        btnName={"Projects"}/>
+                                        btnName={page?.page.about["learn more header"].projects}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
-                                        btnName={"Work Experience"}/>
-                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={testamonials}
-                                        btnName={"Testamonials"}/>
+                                        btnName={page?.page.about["learn more header"]['work experience']}/>
+                            <SectionBtn scrollTo={scrollToSection} goToSectionRef={testimonials}
+                                        btnName={page?.page.about["learn more header"].testamonials}/>
                             <div className='flex justify-center'>
                                 <a href="/CV-Nicholas_Martoccia.pdf" download
-                                   className={"bg-zinc-100 text-lg sm:text-xl lg:text-2xl m-auto font-bebas p-2 xsm:p-0.5 lg:px-4 md:px-3 lg:py-3 px-5 sm:px-7 xsm:px-2 text-gray-600"}>Resume</a>
+                                    className={"bg-zinc-100 text-lg sm:text-xl lg:text-2xl m-auto font-bebas p-2 xsm:p-0.5 lg:px-4 md:px-3 lg:py-3 px-5 sm:px-7 xsm:px-2 text-gray-600"}>{page?.page.about["learn more header"].resume}</a>
                             </div>
                         </div>
                     </div>
@@ -278,9 +296,9 @@ export default function Home() {
 
                         <div className="flex flex-col md:flex-row justify-center">
                             <div className="flex flex-col md:mx-6 gap-4 lg:gap-16 xsm:gap-2 justify-center">
-                                <div className="text-5xl lg:text-5xl font-bebas md:text-4xl xsm:text-4xl">Skills</div>
+                                <div className="text-5xl lg:text-5xl font-bebas md:text-4xl xsm:text-4xl">{page?.page.skills.header}</div>
                                 <div className="flex flex-col md:text-base w-[90%] lg:text-lg py-3 xsm:text-xs">
-                                    The diagram offers a glimpse into a selection of my skills. For a more comprehensive overview of my capabilities, I invite you to explore the projects available on my GitHub profile linked below. These repositories not only demonstrate my proficiency in various languages but also highlight the versatility I bring to each.
+                                    {page?.page.skills.paragraph}
                                     <div
                                         className='flex justify-start lg:justify-start md: justify-start xsm:justify-center xsm:mt-2 mt-5'>
                                         <button
@@ -321,21 +339,21 @@ export default function Home() {
             </div>
             {/*Projects section*/}
             <div ref={projectsSection} className={"bg-gray-200 lg:mb-96"}>
-                <SectionTitle title={"Projects"}/>
+                <SectionTitle title={page?.page.projects.header}/>
                 <div className="flex justify-center mb-40 py-12">
                     <div className="flex gap-10 flex-wrap justify-center">
-                        <ProjectContainer title={'ChatRoom'} description={descriptionChatRoom}
+                        <ProjectContainer title={page?.page.projects.chatroom.header} description={page?.page.projects.chatroom.description}
                                           githubLink={'https://github.com/nic5694/ChatRoom'}
                                           pictureClassName={'chatbot'}/>
-                        <ProjectContainer title={'Moving Express'} description={descriptionMovingExpress}
+                        <ProjectContainer title={page?.page.projects.movingexpress.header} description={page?.page.projects.movingexpress.description}
                                           githubLink={'https://github.com/nic5694/MovingExpress'}
                                           pictureClassName={'moving'}/>
-                        <ProjectContainer title={'Quiz Code'} description={descriptionQuizCode}
+                        <ProjectContainer title={page?.page.projects.quizcode.header} description={page?.page.projects.quizcode.description}
                                           githubLink={'https://github.com/nic5694/QuizCode'} pictureClassName={'quiz'}/>
-                        <ProjectContainer title={'Silk Reads Library Manager'} description={descriptionLibraryManager}
+                        <ProjectContainer title={page?.page.projects.librarymanager.header} description={page?.page.projects.librarymanager.description}
                                           githubLink={'https://github.com/nic5694/LibraryManager'}
                                           pictureClassName={'library'}/>
-                        <ProjectContainer title={'EcoSmart Home Hub'} description={descriptionEcoSmartHomeHub}
+                        <ProjectContainer title={page?.page.projects.smarthomehub.header} description={page?.page.projects.smarthomehub.description}
                                           githubLink={'https://github.com/nic5694/EcoSmart_Home_Hub'}
                                           pictureClassName={'smarthome'}/>
 
@@ -401,7 +419,7 @@ export default function Home() {
                     </VerticalTimeline>
                 </div>
             </div>
-            <div ref={testamonials} style={{alignItems: "center"}}
+            <div ref={testimonials} style={{alignItems: "center"}}
                  className='bg-gray-200 md:flex flex-col justify-center py-16 gap-20 flex-wrap h-[100vh] px-[5%]'>
 
                 <div className={"mb-5"}>
