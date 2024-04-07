@@ -280,9 +280,7 @@ export default function Home() {
                             <div className="flex flex-col md:mx-6 gap-4 lg:gap-16 xsm:gap-2 justify-center">
                                 <div className="text-5xl lg:text-5xl font-bebas md:text-4xl xsm:text-4xl">Skills</div>
                                 <div className="flex flex-col md:text-base w-[90%] lg:text-lg py-3 xsm:text-xs">
-                                    The diagram provides a snapshot of some of my skills. For a more comprehensive view
-                                    of my capabilities, please explore the projects available on my GitHub profile
-                                    linked below. These repositories.
+                                    The diagram offers a glimpse into a selection of my skills. For a more comprehensive overview of my capabilities, I invite you to explore the projects available on my GitHub profile linked below. These repositories not only demonstrate my proficiency in various languages but also highlight the versatility I bring to each."
                                     <div
                                         className='flex justify-start lg:justify-start md: justify-start xsm:justify-center xsm:mt-2 mt-5'>
                                         <button

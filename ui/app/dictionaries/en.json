@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "about": "about",
+    "skills": "skills",
+    "projects": "projects",
+    "work experience": "Work Experience",
+    "testimonials": "testimonials",
+    "resume": "resume",
+    "name": "name"
+  },
+  "page": {
+    "landing page": {
+      "name": "Nicholas Martoccia",
+      "typeout string1": "< Software Developer / >",
+      "typeout string2": "< Computer Science Student / >",
+      "enter btn": "enter portfolio"
+    },
+    "about": {
+      "paragraph1": "Throughout my academic journey, I have consistently achieved excellence, earning multiple accolades on the Dean's List. My leadership extends beyond academics. I have led the programming team within the robotics club and the student cybersecurity club at my institution.",
+      "paragraph2": "In my role as a Front-end Software Developer Intern at Université de Sherbrooke, I gained practical experience in crafting user-friendly web components using HTML, CSS, and Lit. My commitment to continuous learning has enabled me to acquire new skills and technologies. This has equipped me to tackle real-world challenges and make significant contributions to projects.",
+      "learn more header": {
+        "header": "Learn more about my:",
+        "skills": "Skills",
+        "projects": "Projects",
+        "work experience": "Work Experience",
+        "testamonials": "Testamonials",
+        "resume": "Resume"
+      }
+    },
+    "skills": {
+      "header": "Skills",
+      "paragraph": "The diagram offers a glimpse into a selection of my skills. For a more comprehensive overview of my capabilities, I invite you to explore the projects available on my GitHub profile linked below. These repositories not only demonstrate my proficiency in various languages but also highlight the versatility I bring to each."
+    },
+    "projects": {
+      "header": "Projects",
+      "chatroom": {
+        "header": "ChatRoom",
+        "description": "Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."
+      },
+      "movingexpress": {
+        "header": "Moving Express",
+        "description": "Full-stack web app for a Montreal moving company, with Spring Boot and React (TypeScript). Features extensive documentation, allowing users to generate quotes, modify shipments, and generate reports. Auth0 handles user authentication, including social logins. Developed collaboratively, my contributions focused on authentication, email, shipment & quote services, PDF generation, and user & truck services."
+      },
+      "quizcode": {
+        "header": "Quiz Code",
+        "description": "IOS app built on the MVVM architecture, providing coding practice in HTML, Docker, Linux, PHP, JavaScript, and more. Offers interactive quizzes powered by QuizAPI.io and utilizes Firebase for storing users' scores using the singleton pattern, enabling progress tracking."
+      },
+      "librarymanager": {
+        "header": "Silk Reads Library Manager",
+        "description": "Full-stack application aimed at simplifying library administration tasks, such as adding new libraries and updating books. Backend powered by Java Spring Boot using REST architecture with JPA and Hibernate ORM. Frontend developed in JavaScript, HTML, and styled with CSS and React-Bootstrap."
+      },
+      "smarthomehub": {
+        "header": "EcoSmart Home Hub",
+        "description": "EcoSmart Home Hub is a small-scale IoT smart home project that utilizes Flask for the backend and React for the frontend. It offers device control, real-time environmental monitoring, and a user-friendly dashboard. The Flask backend manages data processing, device communication, and user authentication, while the React frontend communicates via RESTful APIs. This project empowers users to efficiently manage their home environment for sustainable living."
+      }
+    },
+    "workexperience": {
+      "header": "Work Experience",
+      "job1": {
+        "name": "Deployment Technician - Control Force & Motion @ CAE",
+        "description": "Was put in charge or running tests on the simulators and generating reports to ensure the simulators behaviors were within the allowed delta set by the engineers. Collaborated in IoT projects to improve simulator behavior and features.",
+        "period": "February 2024 - May 2024"
+      },
+      "job2": {
+        "name": "Lead Programmer Robotics Club @ Champlain College Saint-Lambert",
+        "description": "Competed and represented my school in CRC Robotics competitions. Participated as programmer of the robot (Arduino C++) and leader of the Java programming challenge team.",
+        "period": "January 2022 - January 2024"
+      },
+      "job3": {
+        "name": "Software Developer Intern @ University of Sherbrooke, Quebec",
+        "description": "Built and developed web components using TypeScript and the Lit framework for a federal research on computational critical thinking and logistic.",
+        "period": "June 2022 - August 2022"
+      }
+    },
+    "testimonials": {
+      "header": "Testimonials",
+      "subheader": "Leave An Endorsement",
+      "description": "Here you will find endorsements from past colleagues and employers. If you would like to leave an endorsement, please fill out the form below and do not forget to include your name and company where you worked with me."
+    }
+
+  }
+}
