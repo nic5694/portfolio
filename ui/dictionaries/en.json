@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "language": "FR",
     "about": "about",
     "skills": "skills",
     "projects": "projects",
@@ -23,7 +24,7 @@
         "skills": "Skills",
         "projects": "Projects",
         "work experience": "Work Experience",
-        "testamonials": "Testamonials",
+        "testimonials": "Testimonials",
         "resume": "Resume"
       }
     },
@@ -57,17 +58,20 @@
     "workexperience": {
       "header": "Work Experience",
       "job1": {
-        "name": "Deployment Technician - Control Force & Motion @ CAE",
+        "name": "Deployment Technician - Control Force & Motion",
+        "company": "CAE",
         "description": "Was put in charge or running tests on the simulators and generating reports to ensure the simulators behaviors were within the allowed delta set by the engineers. Collaborated in IoT projects to improve simulator behavior and features.",
         "period": "February 2024 - May 2024"
       },
       "job2": {
-        "name": "Lead Programmer Robotics Club @ Champlain College Saint-Lambert",
+        "name": "Lead Programmer Robotics Club",
+        "company": "Champlain College Saint-Lambert",
         "description": "Competed and represented my school in CRC Robotics competitions. Participated as programmer of the robot (Arduino C++) and leader of the Java programming challenge team.",
         "period": "January 2022 - January 2024"
       },
       "job3": {
-        "name": "Software Developer Intern @ University of Sherbrooke, Quebec",
+        "name": "Software Developer Intern",
+        "company": "University of Sherbrooke, Quebec",
         "description": "Built and developed web components using TypeScript and the Lit framework for a federal research on computational critical thinking and logistic.",
         "period": "June 2022 - August 2022"
       }
@@ -75,7 +79,10 @@
     "testimonials": {
       "header": "Testimonials",
       "subheader": "Leave An Endorsement",
-      "description": "Here you will find endorsements from past colleagues and employers. If you would like to leave an endorsement, please fill out the form below and do not forget to include your name and company where you worked with me."
+      "description": "Here you will find endorsements from past colleagues and employers. If you would like to leave an endorsement, please fill out the form below and do not forget to include your name and company where you worked with me.",
+      "name_field": "Full Name",
+      "company_field": "Company",
+      "message_field": "Message..."
     }
 
   }

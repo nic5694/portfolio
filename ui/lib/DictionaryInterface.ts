@@ -1,5 +1,6 @@
 interface DictionaryInterface {
     navigation: {
+        language: string;
         about: string;
         skills: string;
         projects: string;
@@ -23,7 +24,7 @@ interface DictionaryInterface {
                 skills: string;
                 projects: string;
                 "work experience": string;
-                testamonials: string; // Note: should this be "testimonials"?
+                testimonials: string; // Note: should this be "testimonials"?
                 resume: string;
             };
         };
@@ -58,16 +59,19 @@ interface DictionaryInterface {
             header: string;
             job1: {
                 name: string;
+                company: string;
                 description: string;
                 period: string;
             };
             job2: {
                 name: string;
+                company: string;
                 description: string;
                 period: string;
             };
             job3: {
                 name: string;
+                company: string;
                 description: string;
                 period: string;
             };
@@ -76,6 +80,9 @@ interface DictionaryInterface {
             header: string;
             subheader: string;
             description: string;
+            name_field: string;
+            company_field: string;
+            message_field: string;
         };
     };
 }

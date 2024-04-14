@@ -13,7 +13,7 @@ import ProjectContainer from "@/app/[lang]/components/projectContainer";
 //@ts-ignore
 import Typewriter from 'typewriter-effect/dist/core';
 import {toast} from "react-toastify";
-import { Locale } from '@/i18n.config'
+import {i18n, Locale} from '@/i18n.config'
 import {getDictionary} from "@/lib/dictionary";
 
 
@@ -24,7 +24,6 @@ export default function Home({
     params: {lang: Locale}
 }) {
     const [page, setPage] = useState<DictionaryInterface | any>(null);
-
     useEffect(() => {
         const fetchPageData = async () => {
             try {
@@ -37,7 +36,25 @@ export default function Home({
         };
 
         fetchPageData();
-    }, [lang]);
+    }, []);
+
+
+    const changeLanguage = (lng: Locale) => {
+        let url = window.location.href;
+        let newUrl = url.replace(lang, lng)
+        window.location.href = newUrl;
+        update_text(lng)
+    };
+    const update_text = async (lng: Locale) => {
+        try {
+            const dictionaryPage = await getDictionary(lng);
+            setPage(dictionaryPage);
+        } catch (error) {
+            console.error('Error fetching dictionary:', error);
+            // Handle error if needed
+        }
+    };
+
     const landingSection = useRef<HTMLDivElement>(null);
     const aboutMeSection = useRef<HTMLDivElement>(null);
     const skillsSection = useRef<HTMLDivElement>(null);
@@ -45,12 +62,6 @@ export default function Home({
     const workExperienceSection = useRef<HTMLDivElement>(null);
     const testimonials = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<number | null>(null);
-
-    const descriptionChatRoom = "Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."
-    const descriptionMovingExpress = "Full-stack web app for a Montreal moving company, with Spring Boot and React (TypeScript). Features extensive documentation, allowing users to generate quotes, modify shipments, and generate reports. Auth0 handles user authentication, including social logins. Developed collaboratively, my contributions focused on authentication, email, shipment & quote services, PDF generation, and user & truck services."
-    const descriptionQuizCode = "IOS app built on the MVVM architecture, providing coding practice in HTML, Docker, Linux, PHP, JavaScript, and more. Offers interactive quizzes powered by QuizAPI.io and utilizes Firebase for storing users' scores using the singleton pattern, enabling progress tracking."
-    const descriptionLibraryManager = "Full-stack application aimed at simplifying library administration tasks, such as adding new libraries and updating books. Backend powered by Java Spring Boot using REST architecture with JPA and Hibernate ORM. Frontend developed in JavaScript, HTML, and styled with CSS and React-Bootstrap."
-    const descriptionEcoSmartHomeHub = "EcoSmart Home Hub is a small-scale IoT smart home project that utilizes Flask for the backend and React for the frontend. It offers device control, real-time environmental monitoring, and a user-friendly dashboard. The Flask backend manages data processing, device communication, and user authentication, while the React frontend communicates via RESTful APIs. This project empowers users to efficiently manage their home environment for sustainable living."
 
     const sendIconSVG = () => {
         return (
@@ -73,7 +84,6 @@ export default function Home({
     }
     useEffect(() => {
         var Tag = document.getElementById('Tags');
-
         var typewriter = new Typewriter(Tag, {
             loop: true,
             delay: 75,
@@ -217,7 +227,7 @@ export default function Home({
 
     return (
         <>
-            <Navigation sectionHighlight={activeSection} scrollToSection={scrollToSection} navSections={navSections}/>
+            <Navigation sectionHighlight={activeSection} scrollToSection={scrollToSection} navSections={navSections} page={page} changeLanguage={changeLanguage}/>
             <div className="section">
                 <Section showArrow={true} goToSectionRef={aboutMeSection} scrollTo={scrollToSection}>
                     <div ref={landingSection} className="HomePageContainer">
@@ -280,10 +290,14 @@ export default function Home({
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={workExperienceSection}
                                         btnName={page?.page.about["learn more header"]['work experience']}/>
                             <SectionBtn scrollTo={scrollToSection} goToSectionRef={testimonials}
-                                        btnName={page?.page.about["learn more header"].testamonials}/>
+                                        btnName={page?.page.about["learn more header"].testimonials}/>
                             <div className='flex justify-center'>
-                                <a href="/CV-Nicholas_Martoccia.pdf" download
-                                    className={"bg-zinc-100 text-lg sm:text-xl lg:text-2xl m-auto font-bebas p-2 xsm:p-0.5 lg:px-4 md:px-3 lg:py-3 px-5 sm:px-7 xsm:px-2 text-gray-600"}>{page?.page.about["learn more header"].resume}</a>
+                                <a href="/CV-Nicholas_Martoccia.pdf"
+                                   download
+                                   className={"bg-zinc-100 text-lg sm:text-xl lg:text-2xl m-auto font-bebas p-2 xsm:p-0.5 lg:px-4 md:px-3 lg:py-3 px-5 sm:px-7 xsm:px-2 text-gray-600"}
+                                >
+                                    {page?.page.about["learn more header"].resume}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -365,7 +379,7 @@ export default function Home({
             <div ref={workExperienceSection}
                  className={"mt-20 md:mt-0 flex flex-col justify-center bg-gray-200 md:max-h-min sm:max-h-min lg:max-h-min"}>
                 <div>
-                    <SectionTitle title={"Work Experience"}/>
+                    <SectionTitle title={page?.page.workexperience.header}/>
                     <VerticalTimeline lineColor={"black"} animate={true}>
                         <VerticalTimelineElement
                             className={"vertical-timeline-element--work"}
@@ -375,13 +389,9 @@ export default function Home({
                             iconStyle={{background: 'black', color: '#fff'}}
                             icon={jobIcon()}
                             visible={true}>
-                            <h3 className="vertical-timeline-element-title">Deployment Technician - Control Force &
-                                Motion</h3>
-                            <h4 className="vertical-timeline-element-subtitle">CAE</h4>
-                            <p>Was put in charge or running tests on the
-                                simulators and generating reports to ensure the simulators behaviors were within the
-                                allowed delta set by the engineers. Collaborated in IoT projects to improve
-                                simulator behavior and features.</p>
+                            <h3 className="vertical-timeline-element-title">{page?.page.workexperience.job1.name}</h3>
+                            <h4 className="vertical-timeline-element-subtitle">{page?.page.workexperience.job1.company}</h4>
+                            <p>{page?.page.workexperience.job1.description}</p>
                         </VerticalTimelineElement>
                         <VerticalTimelineElement
                             className={"vertical-timeline-element--work"}
@@ -391,15 +401,9 @@ export default function Home({
                             iconStyle={{background: 'black', color: '#fff'}}
                             visible={true}
                             icon={jobIcon()}>
-                            <h3 className="vertical-timeline-element-title">Lead Programmer Robotics
-                                Club</h3>
-                            <h4 className="vertical-timeline-element-subtitle">Champlain College
-                                Saint-Lambert</h4>
-                            <p>Competed and represented my school in CRC Robotics competitions. Participated
-                                as
-                                programmer of the robot (Arduino C++) and leader of the Java programming
-                                challenge
-                                team.</p>
+                            <h3 className="vertical-timeline-element-title">{page?.page.workexperience.job2.name}</h3>
+                            <h4 className="vertical-timeline-element-subtitle">{page?.page.workexperience.job2.company}</h4>
+                            <p>{page?.page.workexperience.job2.description}</p>
                         </VerticalTimelineElement>
                         <VerticalTimelineElement
                             className={"vertical-timeline-element--education"}
@@ -410,12 +414,10 @@ export default function Home({
                             visible={true}
                             icon={jobIcon()}
                         >
-                            <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
-                            <h4 className="vertical-timeline-element-subtitle">University of Sherbrooke, Quebec</h4>
-                            <p>Built and developed web components using TypeScript and the Lit framework for a
-                                federal research on computational critical thinking and logistic.</p>
+                            <h3 className="vertical-timeline-element-title">{page?.page.workexperience.job3.name}</h3>
+                            <h4 className="vertical-timeline-element-subtitle">{page?.page.workexperience.job3.company}</h4>
+                            <p>{page?.page.workexperience.job3.description}</p>
                         </VerticalTimelineElement>
-
                     </VerticalTimeline>
                 </div>
             </div>
@@ -423,7 +425,7 @@ export default function Home({
                  className='bg-gray-200 md:flex flex-col justify-center py-16 gap-20 flex-wrap h-[100vh] px-[5%]'>
 
                 <div className={"mb-5"}>
-                    <SectionTitle title={"Testimonials"}/>
+                    <SectionTitle title={page?.page.testimonials.header}/>
                 </div>
 
                 <div className={"md:flex justify-center gap-20"}>
@@ -434,14 +436,13 @@ export default function Home({
                     <div>
                         <div className='border-l-[6px] border-black pl-3'>
                             <div style={{fontFamily: 'Bebas Neue, cursive'}}
-                                 className='text-[30px] leading-none mb-1'>Leave An Endorsement
+                                 className='text-[30px] leading-none mb-1'>
+                                {page?.page.testimonials.subheader}
                             </div>
                             <div
                                 className='w-[100%] md:w-[350px] text-[12px] mb-2 font-sans text-[rgb(0,0,0,0.65)]'>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Here you will find endorsements from past colleagues and employers. If you would
-                                like to leave an endorsement, please fill out the form below and do not forget to
-                                include your name and company where you worked with me.
+                                {page?.page.testimonials.description}
                             </div>
                         </div>
 
@@ -454,14 +455,14 @@ export default function Home({
                                             //@ts-ignore
                                             ref={inputNameTestimonial}
                                             className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
-                                            type="text" name="" id="" placeholder='Full Name'/>
+                                            type="text" name="" id="" placeholder={page?.page.testimonials.name_field}/>
                                     </div>
                                     <div>
                                         <input
                                             //@ts-ignore
                                             ref={inputCompanyTestimonial}
                                             className='w-[100%] border-b-[1px] border-[rgba(0,0,0,0.3)] md:w-44 focus:px-3 duration-150 ease-in-out'
-                                            type="text" name="" id="" placeholder='Company'/>
+                                            type="text" name="" id="" placeholder={page?.page.testimonials.company_field}/>
                                     </div>
                                 </div>
                                 <div>
@@ -469,7 +470,7 @@ export default function Home({
                                     //@ts-ignore
                                     ref={textareaRefTestimonial}
                                     className='border-b-[1px] border-[rgba(0,0,0,0.3)] w-[100%] h-20 focus:px-3 focus:pt-3 duration-150 ease-in-out'
-                                    placeholder='Message...'></textarea>
+                                    placeholder={page?.page.testimonials.message_field}></textarea>
                                 </div>
                                 <div className='flex gap-3 md:mb-0'>
                                     <button style={{alignItems: "center"}}

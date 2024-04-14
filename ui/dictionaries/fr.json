@@ -1,82 +1,88 @@
 {
   "navigation": {
-    "about": "about",
-    "skills": "skills",
-    "projects": "projects",
-    "work experience": "Work Experience",
-    "testimonials": "testimonials",
-    "resume": "resume",
-    "name": "name"
+    "language": "EN",
+    "about": "à propos",
+    "skills": "compétences",
+    "projects": "projets",
+    "work experience": "Expérience professionnelle",
+    "testimonials": "témoignages",
+    "resume": "CV",
+    "name": "nom"
   },
   "page": {
     "landingpage": {
       "name": "Nicholas Martoccia",
-      "typeout string1": "< Software Developer / >",
-      "typeout string2": "< Computer Science Student / >",
-      "enter btn": "enter portfolio"
+      "typeout string1": "< Développeur de logiciels / >",
+      "typeout string2": "< Étudiant en science informatique / >",
+      "enter btn": "entrer dans le portfolio"
     },
     "about": {
-      "paragraph1": "Throughout my academic journey, I have consistently achieved excellence, earning multiple accolades on the Dean's List. My leadership extends beyond academics. I have led the programming team within the robotics club and the student cybersecurity club at my institution.",
-      "paragraph2": "In my role as a Front-end Software Developer Intern at Université de Sherbrooke, I gained practical experience in crafting user-friendly web components using HTML, CSS, and Lit. My commitment to continuous learning has enabled me to acquire new skills and technologies. This has equipped me to tackle real-world challenges and make significant contributions to projects.",
+      "paragraph1": "Tout au long de mon parcours académique, j'ai toujours excellé, recevant de multiples distinctions sur la liste du doyen. Mon leadership va au-delà du monde académique. J'ai dirigé l'équipe de programmation au sein du club de robotique et du club de cybersécurité étudiant de mon établissement.",
+      "paragraph2": "Dans mon rôle de stagiaire en développement de logiciels front-end à l'Université de Sherbrooke, j'ai acquis une expérience pratique dans la création de composants Web conviviaux en utilisant HTML, CSS et Lit. Mon engagement envers l'apprentissage continu m'a permis d'acquérir de nouvelles compétences et technologies. Cela m'a équipé pour relever des défis du monde réel et apporter des contributions significatives à des projets.",
       "learn more header": {
-        "header": "Learn more about my:",
-        "skills": "Skills",
-        "projects": "Projects",
-        "work experience": "Work Experience",
-        "testamonials": "Testamonials",
-        "resume": "Resume"
+        "header": "En savoir plus sur mes :",
+        "skills": "Compétences",
+        "projects": "Projets",
+        "work experience": "Expérience professionnelle",
+        "testimonials": "Témoignages",
+        "resume": "CV"
       }
     },
     "skills": {
-      "header": "Skills",
-      "paragraph": "The diagram offers a glimpse into a selection of my skills. For a more comprehensive overview of my capabilities, I invite you to explore the projects available on my GitHub profile linked below. These repositories not only demonstrate my proficiency in various languages but also highlight the versatility I bring to each."
+      "header": "Compétences",
+      "paragraph": "Le diagramme offre un aperçu d'une sélection de mes compétences. Pour une vue d'ensemble plus complète de mes capacités, je vous invite à explorer les projets disponibles sur mon profil GitHub lié ci-dessous. Les projects démontrent non seulement ma maîtrise de divers langages, mais mettent également en avant la polyvalence que j'apporte à chaque projet."
     },
     "projects": {
-      "header": "Projects",
+      "header": "Projets",
       "chatroom": {
         "header": "ChatRoom",
-        "description": "Full stack PHP Laravel and ReactJs chatroom. The chat room allows users to send messages to each other. Users can create an account and log into the chat when. The application allows for group chat format messaging showing active users in the group."
+        "description": "Chatroom Full stack PHP Laravel et ReactJs. La salle de discussion permet aux utilisateurs de s'envoyer des messages. Les utilisateurs peuvent créer un compte et se connecter à la discussion. L'application permet un format de messagerie en groupe en montrant les utilisateurs actifs dans le groupe."
       },
       "movingexpress": {
         "header": "Moving Express",
-        "description": "Full-stack web app for a Montreal moving company, with Spring Boot and React (TypeScript). Features extensive documentation, allowing users to generate quotes, modify shipments, and generate reports. Auth0 handles user authentication, including social logins. Developed collaboratively, my contributions focused on authentication, email, shipment & quote services, PDF generation, and user & truck services."
+        "description": "Application web Full-stack pour une entreprise de déménagement à Montréal, avec Spring Boot et React (TypeScript). Comprend une documentation étendue, permettant aux utilisateurs de générer des devis, de modifier des expéditions et de générer des rapports. Auth0 gère l'authentification des utilisateurs, y compris les connexions sociales. Développé en collaboration, mes contributions ont porté sur l'authentification, l'e-mail, les services d'expédition, de devis et de deploiement CI/CD."
       },
       "quizcode": {
         "header": "Quiz Code",
-        "description": "IOS app built on the MVVM architecture, providing coding practice in HTML, Docker, Linux, PHP, JavaScript, and more. Offers interactive quizzes powered by QuizAPI.io and utilizes Firebase for storing users' scores using the singleton pattern, enabling progress tracking."
+        "description": "Application IOS construite sur l'architecture MVVM, offrant une pratique de codage en HTML, Docker, Linux, PHP, JavaScript, et plus encore. Propose des quiz interactifs alimentés par QuizAPI.io et utilise Firebase pour stocker les scores des utilisateurs en utilisant le modèle singleton, permettant le suivi des progrès."
       },
       "librarymanager": {
-        "header": "Silk Reads Library Manager",
-        "description": "Full-stack application aimed at simplifying library administration tasks, such as adding new libraries and updating books. Backend powered by Java Spring Boot using REST architecture with JPA and Hibernate ORM. Frontend developed in JavaScript, HTML, and styled with CSS and React-Bootstrap."
+        "header": "Gestionnaire de bibliothèque Silk Reads",
+        "description": "Application full-stack visant à simplifier les tâches d'administration de bibliothèque, telles que l'ajout de nouvelles bibliothèques et la mise à jour des livres. Backend alimenté par Java Spring Boot utilisant l'architecture REST avec JPA et Hibernate ORM. Frontend développé en JavaScript, HTML, et stylisé avec CSS et React-Bootstrap."
       },
       "smarthomehub": {
         "header": "EcoSmart Home Hub",
-        "description": "EcoSmart Home Hub is a small-scale IoT smart home project that utilizes Flask for the backend and React for the frontend. It offers device control, real-time environmental monitoring, and a user-friendly dashboard. The Flask backend manages data processing, device communication, and user authentication, while the React frontend communicates via RESTful APIs. This project empowers users to efficiently manage their home environment for sustainable living."
+        "description": "EcoSmart Home Hub est une preuve de concept IoT utilisant Flask pour le backend et React pour l'interface. Offrant un contrôle des appareils, une surveillance environnementale en temps réel, et un tableau de bord convivial, le backend Flask gère le traitement des données, la communication avec les appareils, et l'authentification des utilisateurs. Le frontend React communique via des APIs RESTful, permettant aux utilisateurs de gérer efficacement leur environnement domestique pour une vie durable."
       }
     },
     "workexperience": {
-      "header": "Work Experience",
+      "header": "Expérience professionnelle",
       "job1": {
-        "name": "Deployment Technician - Control Force & Motion @ CAE",
-        "description": "Was put in charge or running tests on the simulators and generating reports to ensure the simulators behaviors were within the allowed delta set by the engineers. Collaborated in IoT projects to improve simulator behavior and features.",
-        "period": "February 2024 - May 2024"
+        "name": "Technicien de déploiement - Control Force & Motion",
+        "company": "CAE",
+        "description": "Était chargé d'effectuer des tests sur les simulateurs et de générer des rapports pour garantir que les comportements des simulateurs étaient dans le delta autorisé par les ingénieurs. Collaboration à des projets IoT pour améliorer le comportement et les fonctionnalités des simulateurs.",
+        "period": "février 2024 - mai 2024"
       },
       "job2": {
-        "name": "Lead Programmer Robotics Club @ Champlain College Saint-Lambert",
-        "description": "Competed and represented my school in CRC Robotics competitions. Participated as programmer of the robot (Arduino C++) and leader of the Java programming challenge team.",
-        "period": "January 2022 - January 2024"
+        "name": "Programmeur principal du Club de Robotique",
+        "company": "Champlain College Saint-Lambert",
+        "description": "A participé et représenté mon école lors de compétitions de robotique CRC. A participé en tant que programmeur du robot (Arduino C++) et chef de d'équipe pour le défi de programmation Java.",
+        "period": "janvier 2022 - janvier 2024"
       },
       "job3": {
-        "name": "Software Developer Intern @ University of Sherbrooke, Quebec",
-        "description": "Built and developed web components using TypeScript and the Lit framework for a federal research on computational critical thinking and logistic.",
-        "period": "June 2022 - August 2022"
+        "name": "Stagiaire en développement de logiciels",
+        "company": "Université de Sherbrooke, Québec",
+        "description": "Construit et développé des composants web en utilisant TypeScript et le framework Lit pour une recherche fédérale sur la pensée critique computationnelle et logique.",
+        "period": "juin 2022 - août 2022"
       }
     },
     "testimonials": {
-      "header": "Testimonials",
-      "subheader": "Leave An Endorsement",
-      "description": "Here you will find endorsements from past colleagues and employers. If you would like to leave an endorsement, please fill out the form below and do not forget to include your name and company where you worked with me."
+      "header": "Témoignages",
+      "subheader": "Laisser un témoignage",
+      "description": "Vous trouverez ici des recommandations de collègues et d'employeurs passés. Si vous souhaitez laisser une recommandation, veuillez remplir le formulaire ci-dessous et n'oubliez pas d'inclure votre nom et l'entreprise où vous avez travaillé avec moi.",
+      "name_field": "Nom complet",
+      "company_field": "Entreprise",
+      "message_field": "Message..."
     }
-
   }
 }

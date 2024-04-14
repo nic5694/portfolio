@@ -1,15 +1,17 @@
 'use client';
-import {MutableRefObject, Ref, useRef, useState} from "react";
+import {MutableRefObject, Ref, useEffect, useRef, useState} from "react";
+import {Locale} from "@/i18n.config";
 
 interface NavigationProps {
     sectionHighlight: any;
     scrollToSection: (sectionRef: MutableRefObject<HTMLDivElement | null>) => void;
     navSections: { name: string, ref: MutableRefObject<HTMLDivElement | null> }[];
+    page: DictionaryInterface | any;
+    changeLanguage: (lng: Locale) => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollToSection, navSections}) => {
+export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollToSection, navSections, page,changeLanguage}) => {
     const [menuOpen, setMenuOpen] = useState(false); // State to manage menu open/close
-
     const menuIcon = () => {
         return (
             <svg
@@ -62,11 +64,21 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
                         onClick={() => {
+                            let lang = page?.navigation.language.toLowerCase();
+                            changeLanguage(lang)
+                        }}
+                        className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
+                    >
+                        {page?.navigation.language}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue, cursive'}}
+                        onClick={() => {
                             scrollToSection(navSections[0].ref)
                         }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        About
+                        {page?.navigation.about}
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
@@ -75,7 +87,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                         }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Skills
+                        {page?.navigation.skills}
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
@@ -84,7 +96,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                         }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Projects
+                        {page?.navigation.projects}
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
@@ -93,7 +105,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                         }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Work Experience
+                        {page?.navigation["work experience"]}
                     </div>
                     <div
                         style={{fontFamily: 'Bebas Neue, cursive'}}
@@ -102,14 +114,14 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                         }}
                         className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                     >
-                        Testimonials
+                        {page?.navigation.testimonials}
                     </div>
                     <a href="/CV-Nicholas_Martoccia.pdf" download>
                         <div
                             style={{fontFamily: 'Bebas Neue, cursive'}}
                             className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
                         >
-                            Resume
+                            {page?.navigation.resume}
                         </div>
                     </a>
                 </div>
@@ -129,23 +141,53 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                     <button onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'}</button>
                 </div>
                 <div className={`lg:flex gap-10 text-sm ${menuOpen ? 'hidden' : 'flex'}`}>
-                    {navSections.map((section, index) => (
-                        <div
-                            key={index}
-                            style={{fontFamily: 'Bebas Neue'}}
-                            onClick={() => scrollToSection(section.ref)}
-                            className={sectionHighlight === index ? 'text-companyYellow' : 'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
-                        >
-                            {section.name}
-                        </div>
-                    ))}
-                    <a href="/CV-Nicholas_Martoccia.pdf" download>
-                        <div
-                            className="hover:underline underline-offset-4 decoration-2 text-lg  decoration-companyYellow"
-                            style={{fontFamily: 'Bebas Neue'}}>
-                            Resume
-                        </div>
-                    </a>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => changeLanguage(page?.navigation.language.toLowerCase())}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation.language}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => scrollToSection(navSections[0].ref)}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation.about}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => scrollToSection(navSections[1].ref)}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation.skills}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => scrollToSection(navSections[2].ref)}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation.projects}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => scrollToSection(navSections[3].ref)}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation["work experience"]}
+                    </div>
+                    <div
+                        style={{fontFamily: 'Bebas Neue'}}
+                        onClick={() => scrollToSection(navSections[4].ref)}
+                        className={'hover:underline underline-offset-4 text-lg decoration-2 decoration-companyYellow'}
+                    >
+                        {page?.navigation.testimonials}
+                    </div>
+                    <div
+                        className="hover:underline underline-offset-4 decoration-2 text-lg  decoration-companyYellow"
+                        style={{fontFamily: 'Bebas Neue'}}>
+                        <a href="/CV-Nicholas_Martoccia.pdf" download>Resume</a>
+                    </div>
                 </div>
             </div>
         </>
