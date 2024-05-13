@@ -1,6 +1,9 @@
 'use client';
 import {MutableRefObject, Ref, useEffect, useRef, useState} from "react";
 import {Locale} from "@/i18n.config";
+import logo from "../../../public/logo.png";
+import Image from "next/image";
+
 
 interface NavigationProps {
     sectionHighlight: any;
@@ -36,7 +39,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                  className="px-5 py-4 flex justify-between lg:hidden bg-[#2D2D2D] ">
                 <div>
                     <div className="text-lg font-thin tracking-wider text-white" style={{fontFamily: 'Bebas Neue'}}>
-                        Nicholas Martoccia
+                        <Image src={logo} alt={"logo"} className="w-12"/>
                     </div>
                 </div>
 
@@ -116,7 +119,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                     >
                         {page?.navigation.testimonials}
                     </div>
-                    <a href="/CV-Nicholas_Martoccia.pdf" download>
+                    <a href={`/CV.pdf`} download={"Nicholas_Martoccia_cv"}>
                         <div
                             style={{fontFamily: 'Bebas Neue, cursive'}}
                             className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
@@ -130,10 +133,10 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
 
             {/*Desktop*/}
             <div
-                className="bg-[#2D2D2D] px-5 py-4 hidden md:flex lg:justify-between lg:items-center text-white fixed w-full top-0 z-50">
+                className="bg-[#2D2D2D] px-5 py-4 hidden md:flex md:justify-between md:items-center lg:justify-between lg:items-center text-white fixed w-full top-0 z-50">
                 <div className="flex items-center">
                     <div className="text-lg font-thin tracking-wider text-white" style={{fontFamily: 'Bebas Neue'}}>
-                        Nicholas Martoccia
+                        <Image src={logo} alt="logo" className="w-12"/>
                     </div>
                 </div>
                 <div className={`lg:hidden flex gap-5 items-center ${menuOpen ? 'flex-col' : 'hidden'}`}>
@@ -186,7 +189,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                     <div
                         className="hover:underline underline-offset-4 decoration-2 text-lg  decoration-companyYellow"
                         style={{fontFamily: 'Bebas Neue'}}>
-                        <a href="/CV-Nicholas_Martoccia.pdf" download>Resume</a>
+                        <a href={`/CV.pdf`} download={"Nicholas_Martoccia_cv"}>Resume</a>
                     </div>
                 </div>
             </div>
