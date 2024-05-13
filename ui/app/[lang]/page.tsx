@@ -118,11 +118,8 @@ export default function Home({
         const company = inputCompanyTestimonial.current?.value;
 
         if (comment && name && company) {
-            axios.post("https://api.nicportfolio.tech/api/v1/services/endorsementService", JSON.stringify({
-                    name: name,
-                    company: company,
-                    comment: comment
-                })).then((response) => {
+            axios.post("https://api.nicportfolio.tech/api/v1/services/endorsementService", {name: name, company: company, comment: comment})
+                .then((response) => {
                     console.log(response)
                 toast.success('Your testimonial has been submitted.', {
                     position: 'top-right',
