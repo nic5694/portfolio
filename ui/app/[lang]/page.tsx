@@ -135,7 +135,16 @@ export default function Home({
                     theme: 'light',
                 });
             }).catch((error) => {
-                console.log(error)
+                toast.error('There was an error submitting your testimonial. Please try again later.', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: 'light',
+                });
             })
             //@ts-ignore
             textareaRefTestimonial.current.value = '';
