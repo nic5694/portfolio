@@ -119,7 +119,7 @@ export const Navigation: React.FC<NavigationProps> = ({sectionHighlight, scrollT
                     >
                         {page?.navigation.testimonials}
                     </div>
-                    <a href={`/CV.pdf`} download={"Nicholas_Martoccia_cv"}>
+                    <a href={`CV.pdf`} download={"Nicholas_Martoccia_cv"}>
                         <div
                             style={{fontFamily: 'Bebas Neue, cursive'}}
                             className="px-5 py-2 border-b bg-white hover:bg-companyYellow hover:text-[#2D2D2D] hover:pl-10 duration-300 ease-in-out "
