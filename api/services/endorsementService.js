@@ -18,8 +18,7 @@ async function addEndorsement(req, res){
         console.log(req.body); // Log the request body
 
         req.body.status = EndorsementStatus.PENDING;
-        let object = JSON.parse(req.body)
-        const endorsement = new Endorsement(object);
+        const endorsement = new Endorsement(req.body);
         const newEndorsement = await endorsement.save();
 
 
