@@ -15,6 +15,7 @@ import Typewriter from 'typewriter-effect/dist/core';
 import {toast} from "react-toastify";
 import {i18n, Locale} from '@/i18n.config'
 import {getDictionary} from "@/lib/dictionary";
+import axios from "axios";
 
 
 
@@ -117,18 +118,12 @@ export default function Home({
         const company = inputCompanyTestimonial.current?.value;
 
         if (comment && name && company) {
-            const response = await fetch('https://api.nicportfolio.tech/api/v1/services/endorsementService', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
+            axios.post("https://api.nicportfolio.tech/api/v1/services/endorsementService", JSON.stringify({
                     name: name,
                     company: company,
                     comment: comment
-                })
-            });
-            response.text().then((text) => {
+                })).then((response) => {
+                    console.log(response)
                 toast.success('Your testimonial has been submitted.', {
                     position: 'top-right',
                     autoClose: 5000,
@@ -139,9 +134,9 @@ export default function Home({
                     progress: undefined,
                     theme: 'light',
                 });
-
-
-            });
+            }).catch((error) => {
+                console.log(error)
+            })
             //@ts-ignore
             textareaRefTestimonial.current.value = '';
             //@ts-ignore
