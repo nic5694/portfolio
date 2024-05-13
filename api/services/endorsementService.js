@@ -16,9 +16,13 @@ async function getAllEndorsements(res) {
 async function addEndorsement(req, res){
     try {
         console.log(req.body); // Log the request body
-
+        let obj = {
+            name: req.body.name,
+            company: req.body.company,
+            comment: req.body.comment
+        }
         req.body.status = EndorsementStatus.PENDING;
-        const endorsement = new Endorsement(req.body);
+        const endorsement = new Endorsement(obj);
         const newEndorsement = await endorsement.save();
 
 
