@@ -6,7 +6,7 @@ const logger = require('morgan');
 const cors = require('cors')
 
 const corsOptions = {
-    origin: 'nicportfolio.tech/*',
+    origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
