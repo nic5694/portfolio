@@ -117,7 +117,7 @@ export default function Home({
         const company = inputCompanyTestimonial.current?.value;
 
         if (comment && name && company) {
-            const response = await fetch('https://portfolio-express-js-api.onrender.com/api/v1/services/endorsementService', {
+            const response = await fetch('https://api.nicportfolio.tech/api/v1/services/endorsementService', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
